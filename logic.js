@@ -32,17 +32,23 @@
     return d[a.length][b.length];
   }
 
-  /* A typed answer counts if it matches an accepted answer, allowing one
-     typo in answers of 6+ letters and two in answers of 10+. Numbers must match exactly. */
+  /* A typed answer counts if it matches an accepted answer word for word, allowing one typo in
+     words of 6+ letters and two in words of 10+. Numbers must match exactly, and a word that only
+     adds or drops a prefix (centralized / decentralized, tolerance / intolerance) is never a typo. */
+  function closeWord(t, a) {
+    if (t === a) return true;
+    if (/\d/.test(a) || /\d/.test(t)) return false;
+    if (t.endsWith(a) || a.endsWith(t)) return false;
+    const allowed = a.length >= 10 ? 2 : a.length >= 6 ? 1 : 0;
+    return allowed > 0 && editDistance(t, a) <= allowed;
+  }
   function matches(typed, accept) {
     const t = normalize(typed);
     if (!t) return false;
+    const tw = t.split(" ");
     return accept.some((x) => {
-      const a = normalize(x);
-      if (t === a) return true;
-      if (/\d/.test(a)) return false;
-      const allowed = a.length >= 10 ? 2 : a.length >= 6 ? 1 : 0;
-      return allowed > 0 && editDistance(t, a) <= allowed;
+      const aw = normalize(x).split(" ");
+      return aw.length === tw.length && aw.every((w, k) => closeWord(tw[k], w));
     });
   }
 

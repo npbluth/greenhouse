@@ -48,7 +48,9 @@ test("no short answer accepts another question's answer in the same topic", () =
   for (const t of SET.topics) {
     const shorts = t.items.filter((i) => i.type === "short");
     for (const a of shorts) for (const b of shorts)
-      if (a !== b) assert.ok(!GH.matches(b.accept[0], a.accept), `${a.id} accepts ${b.id}'s answer "${b.accept[0]}"`);
+      // Allowed when the overlap is deliberate (the worksheet asks two questions with the same answer).
+      if (a !== b && !a.accept.some((x) => GH.normalize(x) === GH.normalize(b.accept[0])))
+        assert.ok(!GH.matches(b.accept[0], a.accept), `${a.id} accepts ${b.id}'s answer "${b.accept[0]}"`);
   }
 });
 
@@ -62,8 +64,8 @@ test("practice round: 12 questions, no repeats, topics mixed", () => {
 });
 
 test("practice round: one topic only when a topic is picked", () => {
-  const r = GH.buildPractice(SET, 12, seeded(3), "russia");
-  assert.ok(r.length > 0 && r.every((i) => i.topic === "russia"));
+  const r = GH.buildPractice(SET, 12, seeded(3), "31-russia");
+  assert.ok(r.length > 0 && r.every((i) => i.topic === "31-russia"));
 });
 
 test("readiness check: 20 questions spread across every topic", () => {
@@ -81,15 +83,15 @@ test("readiness check: 20 questions spread across every topic", () => {
 
 test("readiness check score: totals and per-topic results", () => {
   const results = [
-    { topic: "russia", pass: true }, { topic: "russia", pass: false },
-    { topic: "china", pass: true }, { topic: "china", pass: true },
+    { topic: "31-russia", pass: true }, { topic: "31-russia", pass: false },
+    { topic: "31-eastasia", pass: true }, { topic: "31-eastasia", pass: true },
   ];
   const s = GH.scoreCheck(SET, results);
   assert.equal(s.right, 3);
   assert.equal(s.total, 4);
   assert.equal(s.pct, 75);
   // JSON round trip: the set is loaded in a separate sandbox, so its arrays fail strict comparison.
-  assert.deepEqual(JSON.parse(JSON.stringify(s.topics.map((t) => [t.id, t.right, t.total]))), [["russia", 1, 2], ["china", 2, 2]]);
+  assert.deepEqual(JSON.parse(JSON.stringify(s.topics.map((t) => [t.id, t.right, t.total]))), [["31-russia", 1, 2], ["31-eastasia", 2, 2]]);
 });
 
 test("Looks wrong: opens a text with the question, and no phone number", () => {
@@ -151,4 +153,13 @@ test("matching board: five different definition items", () => {
   assert.equal(b.length, 5);
   assert.ok(b.every((i) => i.type === "define"));
   assert.equal(new Set(b.map((i) => i.id)).size, 5);
+});
+
+test("short answers: an opposite answer is never accepted as a typo", () => {
+  assert.ok(!GH.matches("decentralized power", ["centralized power"]));
+  assert.ok(!GH.matches("religious intolerance", ["religious tolerance"]));
+  assert.ok(!GH.matches("unsuccessful", ["successful"]));
+  assert.ok(!GH.matches("world war ii", ["world war i"]));
+  assert.ok(!GH.matches("world war two", ["world war one"]));
+  assert.ok(GH.matches("centralised power", ["centralized power"]), "spelling variants still pass");
 });

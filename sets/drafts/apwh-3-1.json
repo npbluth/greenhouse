@@ -1,0 +1,1288 @@
+[
+  {
+    "id": "31-overview",
+    "name": "Gunpowder empires and Europe in 1450",
+    "items": [
+      {
+        "id": "31-term-gunpowder-empires",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Name for the large land-based empires of about 1450 to 1750 that used cannons and muskets to conquer neighbors and hold their land.",
+        "options": [
+          "Gunpowder Empires",
+          "Gutenberg Printing Press",
+          "Ghazi Ideal",
+          "Caste"
+        ],
+        "answer": 0,
+        "why": "Your worksheet names Russia, the Mughals, the Ottomans and the Safavids. Many historians count only the three Islamic ones.",
+        "src": {
+          "label": "Wikipedia: Gunpowder empires",
+          "url": "https://en.wikipedia.org/wiki/Gunpowder_empires"
+        }
+      },
+      {
+        "id": "31-term-gutenberg",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Machine with movable metal type built in Germany around 1450 that made books cheaper and helped ideas spread quickly across Europe.",
+        "options": [
+          "Gutenberg Printing Press",
+          "Gunpowder Empires",
+          "Volga River",
+          "Ghazi Ideal"
+        ],
+        "answer": 0,
+        "why": "It is one of the events that marks the start of the early modern period.",
+        "src": {
+          "label": "Wikipedia: Printing press",
+          "url": "https://en.wikipedia.org/wiki/Printing_press"
+        }
+      },
+      {
+        "id": "31-q-four-empires",
+        "type": "short",
+        "q": "Who were the four Gunpowder Empires?",
+        "answer": "Russia, the Mughal Empire, the Ottoman Empire and the Safavid Empire.",
+        "accept": [
+          "russia, mughal, ottoman, safavid"
+        ],
+        "why": "That is the worksheet's list. Many historians count only the three Islamic ones (Ottoman, Safavid, Mughal), but teach the four on your worksheet.",
+        "src": {
+          "label": "Wikipedia: Gunpowder empires",
+          "url": "https://en.wikipedia.org/wiki/Gunpowder_empires"
+        }
+      },
+      {
+        "id": "31-q-art-legacies",
+        "type": "short",
+        "q": "Why did the Gunpowder Empires craft artistic and architectural legacies?",
+        "answer": "To show off the ruler's power, wealth and right to rule, and to glorify their religion.",
+        "accept": [
+          "to show power"
+        ],
+        "why": "Grand mosques, palaces and paintings told subjects and rivals that the ruler was strong and legitimate.",
+        "src": {
+          "label": "Wikipedia: Gunpowder empires",
+          "url": "https://en.wikipedia.org/wiki/Gunpowder_empires"
+        }
+      },
+      {
+        "id": "31-q-europe-unique",
+        "type": "short",
+        "q": "What did Europe's expansion involve that was unique from the Gunpowder Empires?",
+        "answer": "Europeans expanded overseas by sea, building colonies and trade networks across oceans, while the Gunpowder Empires grew over land.",
+        "accept": [
+          "overseas",
+          "by sea"
+        ],
+        "why": "Gunpowder empires were land-based. Europe's new empires crossed the Atlantic and Indian Oceans.",
+        "src": {
+          "label": "Wikipedia: Early modern period",
+          "url": "https://en.wikipedia.org/wiki/Early_modern_period"
+        }
+      },
+      {
+        "id": "31-q-year-1450",
+        "type": "short",
+        "q": "What is significant about the year 1450?",
+        "answer": "It is about when the early modern period begins, as the Gutenberg printing press appears and the Ottomans are about to take Constantinople.",
+        "accept": [
+          "start of early modern period"
+        ],
+        "why": "Historians use the mid-1400s as the dividing line between the medieval period and the early modern period.",
+        "src": {
+          "label": "Wikipedia: Early modern period",
+          "url": "https://en.wikipedia.org/wiki/Early_modern_period"
+        }
+      },
+      {
+        "id": "31-q-early-modern-events",
+        "type": "short",
+        "q": "What events signal the beginning of the early modern period (the mid-1450s)?",
+        "answer": "The Ottoman capture of Constantinople in 1453 and the invention of the Gutenberg printing press around 1450.",
+        "accept": [
+          "fall of constantinople",
+          "printing press"
+        ],
+        "why": "The 1453 fall of Constantinople ended the Byzantine Empire, and printing spread ideas faster than ever.",
+        "src": {
+          "label": "Wikipedia: Early modern period",
+          "url": "https://en.wikipedia.org/wiki/Early_modern_period"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-monarchs-control",
+        "type": "short",
+        "q": "Monarchies in Europe in 1450 wanted to control:",
+        "answer": "Taxes, trade and their powerful nobles, so they could build stronger central governments.",
+        "accept": [
+          "taxes"
+        ],
+        "why": "Kings wanted money and armies they controlled, instead of depending on nobles.",
+        "src": {
+          "label": "Wikipedia: Early modern period",
+          "url": "https://en.wikipedia.org/wiki/Early_modern_period"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-rising-class",
+        "type": "short",
+        "q": "Which social class was becoming more powerful in Europe?",
+        "answer": "The merchant (middle) class, who grew rich from trade and banking.",
+        "accept": [
+          "merchants",
+          "middle class"
+        ],
+        "why": "Trade made merchants wealthy, and kings often allied with them against the old nobility.",
+        "src": {
+          "label": "Wikipedia: Bourgeoisie",
+          "url": "https://en.wikipedia.org/wiki/Bourgeoisie"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      }
+    ]
+  },
+  {
+    "id": "31-russia",
+    "name": "Russia",
+    "items": [
+      {
+        "id": "31-term-ivan-iv",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Russian ruler of the 1500s, the first to be crowned tsar, nicknamed 'the Terrible', who conquered Kazan and Astrakhan and pushed Russia's border east.",
+        "options": [
+          "Ivan IV",
+          "Mehmed II",
+          "Suleiman I",
+          "Akbar"
+        ],
+        "answer": 0,
+        "why": "His conquests opened the Volga River and the road to Siberia.",
+        "src": {
+          "label": "Wikipedia: Ivan the Terrible",
+          "url": "https://en.wikipedia.org/wiki/Ivan_the_Terrible"
+        }
+      },
+      {
+        "id": "31-term-volga",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Longest river in Europe, flowing south into the Caspian Sea, and a key trade route that Russia wanted to control.",
+        "options": [
+          "Volga River",
+          "Tamerlane",
+          "Caste",
+          "Shah"
+        ],
+        "answer": 0,
+        "why": "Controlling it gave Russia trade with Central Asia and Persia.",
+        "src": {
+          "label": "Wikipedia: Volga",
+          "url": "https://en.wikipedia.org/wiki/Volga"
+        }
+      },
+      {
+        "id": "31-q-influenced-by",
+        "type": "short",
+        "q": "Which two regions was Russia influenced by?",
+        "answer": "Europe and Asia.",
+        "accept": [
+          "europe and asia"
+        ],
+        "why": "Russia sits across both, with Orthodox Christian and Byzantine ties to the west and Mongol rule from the east.",
+        "src": {
+          "label": "Wikipedia: Muscovy",
+          "url": "https://en.wikipedia.org/wiki/Muscovy"
+        }
+      },
+      {
+        "id": "31-q-ivan-east",
+        "type": "short",
+        "q": "How did Ivan IV extend the border of Russia eastward?",
+        "answer": "He conquered the Tatar khanates of Kazan and Astrakhan using gunpowder weapons, which opened the way into Siberia.",
+        "accept": [
+          "conquered kazan and astrakhan"
+        ],
+        "why": "Muskets and cannons gave his army the edge over the Tatar forces.",
+        "src": {
+          "label": "Wikipedia: Ivan the Terrible",
+          "url": "https://en.wikipedia.org/wiki/Ivan_the_Terrible"
+        }
+      },
+      {
+        "id": "31-q-expansion-depend",
+        "type": "short",
+        "q": "What did Russia's expansion depend on?",
+        "answer": "Gunpowder weapons and the Cossacks who fought for the tsar.",
+        "accept": [
+          "gunpowder",
+          "gunpowder weapons"
+        ],
+        "why": "Firearms let small Russian forces beat larger groups in Siberia.",
+        "src": {
+          "label": "Wikipedia: Russian conquest of Siberia",
+          "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Siberia"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-cossacks",
+        "type": "short",
+        "q": "Who were the Cossacks and what did they do?",
+        "answer": "Free warrior-settlers of the steppe frontier who served the Russian tsars as soldiers and explorers and helped conquer Siberia.",
+        "accept": [
+          "warriors",
+          "soldiers"
+        ],
+        "why": "They pushed the border east and guarded it.",
+        "src": {
+          "label": "Wikipedia: Cossacks",
+          "url": "https://en.wikipedia.org/wiki/Cossacks"
+        }
+      },
+      {
+        "id": "31-q-volga-why",
+        "type": "short",
+        "q": "Why did Russia want to control the Volga River?",
+        "answer": "It was a major trade route, so controlling it gave Russia trade with Central Asia and Persia and access to the Caspian Sea.",
+        "accept": [
+          "trade",
+          "trade route"
+        ],
+        "why": "Whoever held the Volga controlled the flow of goods across that region.",
+        "src": {
+          "label": "Wikipedia: Volga",
+          "url": "https://en.wikipedia.org/wiki/Volga"
+        }
+      },
+      {
+        "id": "31-q-religion-siberia",
+        "type": "short",
+        "q": "What religion did Russian missionaries want to convert Siberian tribes to?",
+        "answer": "Eastern Orthodox Christianity.",
+        "accept": [
+          "eastern orthodox",
+          "orthodox christianity"
+        ],
+        "why": "Russia's rulers tied their state to the Russian Orthodox Church.",
+        "src": {
+          "label": "Wikipedia: Russian Orthodox Church",
+          "url": "https://en.wikipedia.org/wiki/Russian_Orthodox_Church"
+        }
+      },
+      {
+        "id": "31-q-by-1639",
+        "type": "short",
+        "q": "Where did the Russian Empire extend to by 1639?",
+        "answer": "Across Siberia to the Pacific Ocean.",
+        "accept": [
+          "pacific ocean"
+        ],
+        "why": "Russian explorers reached the Pacific coast in 1639. Alaska came much later, in the 1700s.",
+        "src": {
+          "label": "Wikipedia: Russian conquest of Siberia",
+          "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Siberia"
+        }
+      }
+    ]
+  },
+  {
+    "id": "31-eastasia",
+    "name": "East Asia (Ming and Qing)",
+    "items": [
+      {
+        "id": "31-term-ming",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Chinese ruling family that took power in 1368 after driving out the Mongols and kept China stable for about 300 years.",
+        "options": [
+          "Ming Dynasty",
+          "Qing Dynasty",
+          "Safavid Empire",
+          "Mughal Empire"
+        ],
+        "answer": 0,
+        "why": "They rebuilt the Great Wall and restored Chinese rule.",
+        "src": {
+          "label": "Wikipedia: Ming dynasty",
+          "url": "https://en.wikipedia.org/wiki/Ming_dynasty"
+        }
+      },
+      {
+        "id": "31-term-qing",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Last ruling family of China, set up by Manchus from the northeast, which took over China in 1644 and greatly enlarged its territory.",
+        "options": [
+          "Qing Dynasty",
+          "Ming Dynasty",
+          "Ottoman Empire",
+          "Safavid Empire"
+        ],
+        "answer": 0,
+        "why": "It replaced the Ming and ruled until 1912.",
+        "src": {
+          "label": "Wikipedia: Qing dynasty",
+          "url": "https://en.wikipedia.org/wiki/Qing_dynasty"
+        }
+      },
+      {
+        "id": "31-term-kangxi",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Qing emperor who ruled 61 years (to 1722), the longest reign in Chinese history, and brought Taiwan, Mongolia and Tibet under Qing control.",
+        "options": [
+          "Kangxi",
+          "Suleiman I",
+          "Mehmed II",
+          "Ivan IV"
+        ],
+        "answer": 0,
+        "why": "His long, steady rule made the Qing strong and larger.",
+        "src": {
+          "label": "Wikipedia: Kangxi Emperor",
+          "url": "https://en.wikipedia.org/wiki/Kangxi_Emperor"
+        }
+      },
+      {
+        "id": "31-term-qianlong",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Qing emperor of the late 1700s who pushed the empire into Central Asia and Tibet, but whose last years brought corruption and money trouble.",
+        "options": [
+          "Emperor Qianlong",
+          "Mehmed II",
+          "Shah Abbas I",
+          "Ivan IV"
+        ],
+        "answer": 0,
+        "why": "The empire peaked under him, then began to weaken.",
+        "src": {
+          "label": "Wikipedia: Qianlong Emperor",
+          "url": "https://en.wikipedia.org/wiki/Qianlong_Emperor"
+        }
+      },
+      {
+        "id": "31-q-ming-result",
+        "type": "short",
+        "q": "The Ming Dynasty was established after the Mongols were pushed out of China. What was the result of the Ming Dynasty?",
+        "answer": "Chinese rule was restored, and China enjoyed about 300 years of stability and prosperity.",
+        "accept": [
+          "stability for 300 years"
+        ],
+        "why": "The Ming ruled from 1368 to 1644 and rebuilt the Great Wall.",
+        "src": {
+          "label": "Wikipedia: Ming dynasty",
+          "url": "https://en.wikipedia.org/wiki/Ming_dynasty"
+        }
+      },
+      {
+        "id": "31-q-qing-who",
+        "type": "short",
+        "q": "Who established the Qing Dynasty?",
+        "answer": "The Manchus, from Manchuria.",
+        "accept": [
+          "manchus",
+          "manchu"
+        ],
+        "why": "They took Beijing in 1644 after the Ming collapsed.",
+        "src": {
+          "label": "Wikipedia: Qing dynasty",
+          "url": "https://en.wikipedia.org/wiki/Qing_dynasty"
+        }
+      },
+      {
+        "id": "31-q-great-wall",
+        "type": "short",
+        "q": "What caused China to rebuild the Great Wall of China for protection?",
+        "answer": "The threat of Mongol raids from the north.",
+        "accept": [
+          "mongols",
+          "mongol threat"
+        ],
+        "why": "The Ming rebuilt it in stone and brick to keep Mongol invaders out.",
+        "src": {
+          "label": "Wikipedia: Great Wall of China",
+          "url": "https://en.wikipedia.org/wiki/Great_Wall_of_China"
+        }
+      },
+      {
+        "id": "31-q-kangxi-rule",
+        "type": "short",
+        "q": "What was significant about Emperor Kangxi's rule AND what regions did he incorporate into China's rule?",
+        "answer": "He had the longest reign in Chinese history (61 years) and brought Taiwan, Mongolia and Tibet into Qing rule.",
+        "accept": [
+          "taiwan, mongolia, tibet"
+        ],
+        "why": "A long reign gave the Qing stability while the empire grew.",
+        "src": {
+          "label": "Wikipedia: Kangxi Emperor",
+          "url": "https://en.wikipedia.org/wiki/Kangxi_Emperor"
+        }
+      },
+      {
+        "id": "31-q-qianlong-rule",
+        "type": "short",
+        "q": "What was notable about Emperor Qianlong's rule? (where did he expand, what was the reaction to his expansion, etc.)",
+        "answer": "He expanded Qing rule into Central Asia and Tibet, which made the empire its largest, but the wars were costly and not every campaign worked.",
+        "accept": [
+          "expanded into central asia and tibet"
+        ],
+        "why": "The empire reached its peak under him.",
+        "src": {
+          "label": "Wikipedia: Qianlong Emperor",
+          "url": "https://en.wikipedia.org/wiki/Qianlong_Emperor"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-tibet-burma-vietnam",
+        "type": "short",
+        "q": "Were the following expansion efforts by China successful or unsuccessful: Tibet, Burma, Vietnam?",
+        "answer": "Tibet: successful. Burma: unsuccessful. Vietnam: unsuccessful.",
+        "accept": [
+          "tibet successful burma and vietnam unsuccessful"
+        ],
+        "why": "Qing armies held Tibet but failed against Burma (1765 to 1769) and Vietnam (1788 to 1789).",
+        "src": {
+          "label": "Wikipedia: Sino-Burmese War",
+          "url": "https://en.wikipedia.org/wiki/Sino-Burmese_War"
+        }
+      },
+      {
+        "id": "31-q-expansion-result",
+        "type": "short",
+        "q": "What was the result of these efforts to expand?",
+        "answer": "The Qing Empire grew to its largest size, but the long wars were expensive and strained its money.",
+        "accept": [
+          "largest empire"
+        ],
+        "why": "Big conquests brought land but also heavy costs.",
+        "src": {
+          "label": "Wikipedia: Qing dynasty",
+          "url": "https://en.wikipedia.org/wiki/Qing_dynasty"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-qianlong-late",
+        "type": "short",
+        "q": "Describe the late years of Emperor Qianlong's reign.",
+        "answer": "The government became corrupt, money problems grew, and unrest rose, as shown by favorites like Heshen who stole from the state.",
+        "accept": [
+          "corruption"
+        ],
+        "why": "His final years began the Qing decline.",
+        "src": {
+          "label": "Wikipedia: Qianlong Emperor",
+          "url": "https://en.wikipedia.org/wiki/Qianlong_Emperor"
+        }
+      },
+      {
+        "id": "31-q-white-lotus",
+        "type": "short",
+        "q": "Why was the White Lotus Society reinstated? Where have we heard of them before?",
+        "answer": "Poverty, heavy taxes and corrupt officials made people rebel. They were also behind a rebellion against the Mongol Yuan dynasty, which led to the Ming.",
+        "accept": [
+          "rebellion",
+          "taxes and corruption"
+        ],
+        "why": "The White Lotus was a Buddhist-inspired secret society that rebelled in hard times.",
+        "src": {
+          "label": "Wikipedia: White Lotus Rebellion",
+          "url": "https://en.wikipedia.org/wiki/White_Lotus_Rebellion"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-white-lotus-result",
+        "type": "short",
+        "q": "What was the result of their uprising?",
+        "answer": "The Qing crushed it after about eight years (1796 to 1804), with some 100,000 rebels killed, and it badly weakened the dynasty.",
+        "accept": [
+          "weakened the qing",
+          "100,000 killed"
+        ],
+        "why": "The costs showed how weak the Qing had become.",
+        "src": {
+          "label": "Wikipedia: White Lotus Rebellion",
+          "url": "https://en.wikipedia.org/wiki/White_Lotus_Rebellion"
+        }
+      }
+    ]
+  },
+  {
+    "id": "31-islamic",
+    "name": "Islamic gunpowder empires and Tamerlane",
+    "items": [
+      {
+        "id": "31-term-tamerlane",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Turkic-Mongol conqueror of the late 1300s, ruling from Samarkand, who conquered Persia, Central Asia and Delhi but left no lasting government.",
+        "options": [
+          "Tamerlane",
+          "Mehmed II",
+          "Akbar",
+          "Ivan IV"
+        ],
+        "answer": 0,
+        "why": "His empire fell apart soon after his death in 1405.",
+        "src": {
+          "label": "Wikipedia: Timur",
+          "url": "https://en.wikipedia.org/wiki/Timur"
+        }
+      },
+      {
+        "id": "31-term-ghazi",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Belief that a Muslim warrior who fights to spread and defend Islam deserves honor, which inspired fighters to expand the early Ottoman state.",
+        "options": [
+          "Ghazi Ideal",
+          "Caste",
+          "Gunpowder Empires",
+          "Shah"
+        ],
+        "answer": 0,
+        "why": "It gave conquest a religious purpose and a loyal army.",
+        "src": {
+          "label": "Wikipedia: Ghazi (warrior)",
+          "url": "https://en.wikipedia.org/wiki/Ghazi_(warrior)"
+        }
+      },
+      {
+        "id": "31-q-in-common",
+        "type": "short",
+        "q": "What did the Gunpowder Empires have in common?",
+        "answer": "They used gunpowder weapons, strong armies and strong rulers to conquer and control large territories.",
+        "accept": [
+          "gunpowder weapons"
+        ],
+        "why": "Cannons and muskets helped central rulers beat rivals.",
+        "src": {
+          "label": "Wikipedia: Gunpowder empires",
+          "url": "https://en.wikipedia.org/wiki/Gunpowder_empires"
+        }
+      },
+      {
+        "id": "31-q-successful",
+        "type": "short",
+        "q": "What made the Gunpowder Empires successful?",
+        "answer": "Gunpowder weapons, strong armies, and strong rulers with organized governments.",
+        "accept": [
+          "gunpowder weapons"
+        ],
+        "why": "Guns, big armies and good administrators let them hold huge lands.",
+        "src": {
+          "label": "Wikipedia: Gunpowder empires",
+          "url": "https://en.wikipedia.org/wiki/Gunpowder_empires"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-tamerlane-who",
+        "type": "short",
+        "q": "Who was Tamerlane and where did he conquer?",
+        "answer": "A Turkic-Mongol conqueror (1336 to 1405) who ruled from Samarkand and conquered Persia, Central Asia, parts of India and the Middle East.",
+        "accept": [
+          "turkic-mongol conqueror"
+        ],
+        "why": "He even defeated the Ottomans at Ankara in 1402.",
+        "src": {
+          "label": "Wikipedia: Timur",
+          "url": "https://en.wikipedia.org/wiki/Timur"
+        }
+      },
+      {
+        "id": "31-q-ghazi-help",
+        "type": "short",
+        "q": "How did the Ghazi Ideal help the Gunpowder Empires grow?",
+        "answer": "It gave warriors a religious reason to fight and spread Islam, which built loyal armies and justified conquest.",
+        "accept": [
+          "holy war",
+          "religious warriors"
+        ],
+        "why": "Fighting for the faith made soldiers eager and rulers legitimate.",
+        "src": {
+          "label": "Wikipedia: Ghazi (warrior)",
+          "url": "https://en.wikipedia.org/wiki/Ghazi_(warrior)"
+        }
+      },
+      {
+        "id": "31-q-conquests-marked",
+        "type": "short",
+        "q": "Conquests led by the Gunpowder Empires were marked by what?",
+        "answer": "Violence and destruction, though later rulers often ruled their new lands more tolerantly.",
+        "accept": [
+          "violence"
+        ],
+        "why": "Tamerlane in particular was known for massacres.",
+        "src": {
+          "label": "Wikipedia: Timur",
+          "url": "https://en.wikipedia.org/wiki/Timur"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-tamerlane-arts",
+        "type": "short",
+        "q": "How did Tamerlane encourage the arts?",
+        "answer": "He brought skilled artists and builders from conquered lands to Samarkand and built grand mosques and buildings.",
+        "accept": [
+          "brought artists to samarkand"
+        ],
+        "why": "The fine buildings of Samarkand showed his power.",
+        "src": {
+          "label": "Wikipedia: Timur",
+          "url": "https://en.wikipedia.org/wiki/Timur"
+        }
+      },
+      {
+        "id": "31-q-tamerlane-testament",
+        "type": "short",
+        "q": "Tamerlane's invasions were a testament to what?",
+        "answer": "The power of fast nomadic cavalry armies and strong military leadership.",
+        "accept": [
+          "nomadic cavalry"
+        ],
+        "why": "His conquests relied on horsemen and skilled command, not mainly on guns.",
+        "src": {
+          "label": "Wikipedia: Timur",
+          "url": "https://en.wikipedia.org/wiki/Timur"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-tamerlane-government",
+        "type": "short",
+        "q": "Tamerlane's government depended on what?",
+        "answer": "His personal leadership and his army.",
+        "accept": [
+          "his army"
+        ],
+        "why": "With no lasting system, it needed him to hold it together.",
+        "src": {
+          "label": "Wikipedia: Timurid Empire",
+          "url": "https://en.wikipedia.org/wiki/Timurid_Empire"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-tamerlane-fail",
+        "type": "short",
+        "q": "How did Tamerlane fail?",
+        "answer": "He did not build a lasting government, so his empire split apart among his heirs after he died in 1405.",
+        "accept": [
+          "empire fell apart after his death"
+        ],
+        "why": "Rule by one man's strength did not outlive him.",
+        "src": {
+          "label": "Wikipedia: Timurid Empire",
+          "url": "https://en.wikipedia.org/wiki/Timurid_Empire"
+        }
+      },
+      {
+        "id": "31-q-two-forces",
+        "type": "short",
+        "q": "Which two major forces would continue to battle with each other into the 14th century?",
+        "answer": "The Ottoman (Sunni) and Safavid (Shia) empires, who fought for centuries.",
+        "accept": [
+          "ottomans and safavids"
+        ],
+        "why": "The worksheet says 14th century, which is probably a typo, since the Safavids only began in 1501. The two empires fought from 1514 into the 1700s.",
+        "src": {
+          "label": "Wikipedia: Ottoman-Persian Wars",
+          "url": "https://en.wikipedia.org/wiki/Ottoman%E2%80%93Persian_Wars"
+        },
+        "unsure": true,
+        "note": "The worksheet wording is odd (the 14th century is too early for these empires), so the intended answer is a best guess."
+      }
+    ]
+  },
+  {
+    "id": "31-ottoman",
+    "name": "Ottoman Empire",
+    "items": [
+      {
+        "id": "31-term-ottoman",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Muslim empire that began in Anatolia around 1300, took Constantinople in 1453 and ruled southeast Europe, the Middle East and North Africa until 1922.",
+        "options": [
+          "Ottoman Empire",
+          "Safavid Empire",
+          "Mughal Empire",
+          "Qing Dynasty"
+        ],
+        "answer": 0,
+        "why": "It was one of the largest and longest-lasting Islamic empires.",
+        "src": {
+          "label": "Wikipedia: Ottoman Empire",
+          "url": "https://en.wikipedia.org/wiki/Ottoman_Empire"
+        }
+      },
+      {
+        "id": "31-term-mehmed",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Ottoman sultan nicknamed 'the Conqueror' who captured Constantinople in 1453, ending the Byzantine Empire.",
+        "options": [
+          "Mehmed II",
+          "Suleiman I",
+          "Shah Abbas I",
+          "Akbar"
+        ],
+        "answer": 0,
+        "why": "He made Constantinople the Ottoman capital.",
+        "src": {
+          "label": "Wikipedia: Mehmed II",
+          "url": "https://en.wikipedia.org/wiki/Mehmed_II"
+        }
+      },
+      {
+        "id": "31-term-suleiman",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Ottoman sultan (1520 to 1566), called 'the Magnificent', who led the empire at its height and besieged Vienna in 1529.",
+        "options": [
+          "Suleiman I",
+          "Mehmed II",
+          "Akbar",
+          "Kangxi"
+        ],
+        "answer": 0,
+        "why": "Under him the empire peaked in size, wealth and art.",
+        "src": {
+          "label": "Wikipedia: Suleiman the Magnificent",
+          "url": "https://en.wikipedia.org/wiki/Suleiman_the_Magnificent"
+        }
+      },
+      {
+        "id": "31-q-ott-where",
+        "type": "short",
+        "q": "Where was the Ottoman Empire located?",
+        "answer": "In Anatolia (modern Turkey), stretching across southeast Europe, the Middle East and North Africa.",
+        "accept": [
+          "turkey",
+          "anatolia"
+        ],
+        "why": "It sat where Europe, Asia and Africa meet.",
+        "src": {
+          "label": "Wikipedia: Ottoman Empire",
+          "url": "https://en.wikipedia.org/wiki/Ottoman_Empire"
+        }
+      },
+      {
+        "id": "31-q-ott-significant",
+        "type": "short",
+        "q": "Why is the Ottoman Empire significant?",
+        "answer": "It was one of the largest and longest-lasting Islamic empires (about 1300 to 1922) and controlled key trade routes between Europe, Asia and Africa.",
+        "accept": [
+          "largest islamic empire"
+        ],
+        "why": "It also ended the Byzantine Empire in 1453.",
+        "src": {
+          "label": "Wikipedia: Ottoman Empire",
+          "url": "https://en.wikipedia.org/wiki/Ottoman_Empire"
+        }
+      },
+      {
+        "id": "31-q-mehmed-capital",
+        "type": "short",
+        "q": "Under Mehmed II, where was the capital city of the Ottoman Empire?",
+        "answer": "Constantinople (today's Istanbul), the old Byzantine capital.",
+        "accept": [
+          "constantinople",
+          "istanbul"
+        ],
+        "why": "He captured it in 1453.",
+        "src": {
+          "label": "Wikipedia: Fall of Constantinople",
+          "url": "https://en.wikipedia.org/wiki/Fall_of_Constantinople"
+        }
+      },
+      {
+        "id": "31-q-capital-significant",
+        "type": "short",
+        "q": "Why was the location of the capital city significant?",
+        "answer": "It sat on the strait between the Black Sea and the Mediterranean, where Europe meets Asia, so the Ottomans controlled key trade routes.",
+        "accept": [
+          "controlled trade routes"
+        ],
+        "why": "It was a perfect spot for trade and defense.",
+        "src": {
+          "label": "Wikipedia: Fall of Constantinople",
+          "url": "https://en.wikipedia.org/wiki/Fall_of_Constantinople"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-venice",
+        "type": "short",
+        "q": "What was the Ottoman relationship with Venice?",
+        "answer": "They were rivals who fought wars over the Mediterranean, but also trading partners.",
+        "accept": [
+          "rivals and trade partners"
+        ],
+        "why": "Venice fought several wars with the Ottomans but still wanted to trade with them.",
+        "src": {
+          "label": "Wikipedia: Ottoman-Venetian wars",
+          "url": "https://en.wikipedia.org/wiki/Ottoman%E2%80%93Venetian_wars"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-siege",
+        "type": "short",
+        "q": "Why was Suleiman I's siege of Vienna significant?",
+        "answer": "It was the farthest the Ottomans pushed into central Europe in 1529, and they failed to take the city.",
+        "accept": [
+          "farthest ottoman advance"
+        ],
+        "why": "Your worksheet says Venice, but Suleiman's famous siege was of Vienna in 1529.",
+        "src": {
+          "label": "Wikipedia: Siege of Vienna (1529)",
+          "url": "https://en.wikipedia.org/wiki/Siege_of_Vienna_(1529)"
+        }
+      },
+      {
+        "id": "31-q-ott-fall-1922",
+        "type": "short",
+        "q": "What led to the eventual fall of the Ottoman Empire in 1922?",
+        "answer": "The empire's defeat in World War I, after which the Allies occupied it and Turkish nationalists ended the sultanate in 1922.",
+        "accept": [
+          "world war one",
+          "first world war",
+          "wwi",
+          "world war 1",
+          "defeat in world war one"
+        ],
+        "why": "It was World War I (1914 to 1918). The empire was gone before World War II began.",
+        "src": {
+          "label": "Wikipedia: Dissolution of the Ottoman Empire",
+          "url": "https://en.wikipedia.org/wiki/Dissolution_of_the_Ottoman_Empire"
+        }
+      }
+    ]
+  },
+  {
+    "id": "31-safavid",
+    "name": "Safavid Empire",
+    "items": [
+      {
+        "id": "31-term-shah",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Persian title for a king, used by the rulers of Iran such as the Safavid leaders.",
+        "options": [
+          "Shah",
+          "Tamerlane",
+          "Caste",
+          "Ivan IV"
+        ],
+        "answer": 0,
+        "why": "The Safavid shahs held both political and religious authority.",
+        "src": {
+          "label": "Wikipedia: Shah",
+          "url": "https://en.wikipedia.org/wiki/Shah"
+        }
+      },
+      {
+        "id": "31-term-safavid",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Empire founded in 1501 in Iran by Ismail I that made Shia Islam the state religion and clashed with the Sunni Ottomans.",
+        "options": [
+          "Safavid Empire",
+          "Ottoman Empire",
+          "Mughal Empire",
+          "Ming Dynasty"
+        ],
+        "answer": 0,
+        "why": "Its religion still shapes Iran today.",
+        "src": {
+          "label": "Wikipedia: Safavid Iran",
+          "url": "https://en.wikipedia.org/wiki/Safavid_Iran"
+        }
+      },
+      {
+        "id": "31-term-abbas",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Safavid ruler (1588 to 1629) who built a strong army with cannons and muskets, moved the capital to Isfahan and boosted trade.",
+        "options": [
+          "Shah Abbas I",
+          "Akbar",
+          "Suleiman I",
+          "Mehmed II"
+        ],
+        "answer": 0,
+        "why": "Under him the empire reached its height.",
+        "src": {
+          "label": "Wikipedia: Abbas the Great",
+          "url": "https://en.wikipedia.org/wiki/Abbas_the_Great"
+        }
+      },
+      {
+        "id": "31-q-saf-origin",
+        "type": "short",
+        "q": "What was the origin of the Safavid Empire?",
+        "answer": "It began in 1501 when Ismail I, leader of the Safavid Sufi order, conquered Iran and made Twelver Shia Islam the state religion.",
+        "accept": [
+          "ismail i",
+          "safavid order"
+        ],
+        "why": "The Safavids had been a religious order before they became rulers.",
+        "src": {
+          "label": "Wikipedia: Safavid Iran",
+          "url": "https://en.wikipedia.org/wiki/Safavid_Iran"
+        }
+      },
+      {
+        "id": "31-q-saf-problems",
+        "type": "short",
+        "q": "List two problems the Safavid Empire faced.",
+        "answer": "Constant wars with the Ottomans, and a weak navy and little access to the sea.",
+        "accept": [
+          "wars with ottomans"
+        ],
+        "why": "The Sunni Ottomans pressed from the west, and tribal rivalries also caused trouble.",
+        "src": {
+          "label": "Wikipedia: Safavid Iran",
+          "url": "https://en.wikipedia.org/wiki/Safavid_Iran"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-saf-europe",
+        "type": "short",
+        "q": "How did Europe assist the Safavid Empire?",
+        "answer": "European advisers (such as the English Sherley brothers, according to traditional accounts) helped train and arm the Safavid army, since Europe also wanted an ally against the Ottomans.",
+        "accept": [
+          "military advisers",
+          "advisers"
+        ],
+        "why": "Shah Abbas I used Western help to modernize his army.",
+        "src": {
+          "label": "Wikipedia: Abbas the Great",
+          "url": "https://en.wikipedia.org/wiki/Abbas_the_Great"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-saf-controlled",
+        "type": "short",
+        "q": "Safavid shahs controlled what two things?",
+        "answer": "Overland trade routes such as the Silk Road, and the silk trade.",
+        "accept": [
+          "trade routes and silk"
+        ],
+        "why": "Their land sat between Europe and Asia, which brought wealth.",
+        "src": {
+          "label": "Wikipedia: Safavid Iran",
+          "url": "https://en.wikipedia.org/wiki/Safavid_Iran"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book. Your book may say political and religious power instead."
+      },
+      {
+        "id": "31-q-saf-tension",
+        "type": "short",
+        "q": "What two things caused tension between the Safavid and Ottoman Empires?",
+        "answer": "Religion (Shia versus Sunni) and rivalry over land and trade routes.",
+        "accept": [
+          "religion and trade"
+        ],
+        "why": "The Ottomans were Sunni and the Safavids Shia, and both wanted the same lands.",
+        "src": {
+          "label": "Wikipedia: Ottoman–Persian Wars",
+          "url": "https://en.wikipedia.org/wiki/Ottoman%E2%80%93Persian_Wars"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-ott-dominance",
+        "type": "short",
+        "q": "How did the Ottomans try to assert dominance over the Safavid Empire?",
+        "answer": "They defeated the Safavids in battle (Chaldiran, 1514) and also cut off trade with them.",
+        "accept": [
+          "trade embargo",
+          "war"
+        ],
+        "why": "The Ottomans had better artillery and also used trade bans.",
+        "src": {
+          "label": "Wikipedia: Battle of Chaldiran",
+          "url": "https://en.wikipedia.org/wiki/Battle_of_Chaldiran"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-saf-women",
+        "type": "short",
+        "q": "Describe the place of women in the Safavid Empire.",
+        "answer": "Upper-class women could be educated and have political influence, and women could own property and travel, but their freedom shrank after Shah Abbas I.",
+        "accept": [
+          "some political influence"
+        ],
+        "why": "Women had real roles early on, but later shahs placed more limits on them.",
+        "src": {
+          "label": "Wikipedia: Women in Safavid Iran",
+          "url": "https://en.wikipedia.org/wiki/Women_in_Safavid_Iran"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      }
+    ]
+  },
+  {
+    "id": "31-mughal",
+    "name": "Mughal India",
+    "items": [
+      {
+        "id": "31-term-akbar",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Mughal emperor of the late 1500s who expanded the empire across northern India and won Hindu support by tolerating other religions.",
+        "options": [
+          "Akbar",
+          "Shah Abbas I",
+          "Suleiman I",
+          "Kangxi"
+        ],
+        "answer": 0,
+        "why": "His fair policies helped hold the empire together.",
+        "src": {
+          "label": "Wikipedia: Akbar",
+          "url": "https://en.wikipedia.org/wiki/Akbar"
+        }
+      },
+      {
+        "id": "31-term-mughal",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Muslim empire that ruled most of India from 1526 until the 1700s, famous for its wealth and for the Taj Mahal.",
+        "options": [
+          "Mughal Empire",
+          "Ottoman Empire",
+          "Safavid Empire",
+          "Qing Dynasty"
+        ],
+        "answer": 0,
+        "why": "It blended Persian, Islamic and Indian culture.",
+        "src": {
+          "label": "Wikipedia: Mughal Empire",
+          "url": "https://en.wikipedia.org/wiki/Mughal_Empire"
+        }
+      },
+      {
+        "id": "31-term-caste",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Hereditary social group in India that decides a person's job and who they can marry, passed down from parents.",
+        "options": [
+          "Caste",
+          "Ghazi Ideal",
+          "Shah",
+          "Gunpowder Empires"
+        ],
+        "answer": 0,
+        "why": "Caste shaped daily life in Hindu India.",
+        "src": {
+          "label": "Wikipedia: Caste",
+          "url": "https://en.wikipedia.org/wiki/Caste"
+        }
+      },
+      {
+        "id": "31-q-mughal-significant",
+        "type": "short",
+        "q": "What was significant about the Mughal Empire?",
+        "answer": "It was one of the richest and most powerful empires, uniting most of India under Muslim rulers and blending Muslim and Hindu cultures.",
+        "accept": [
+          "richest empire"
+        ],
+        "why": "It ruled a huge, wealthy population.",
+        "src": {
+          "label": "Wikipedia: Mughal Empire",
+          "url": "https://en.wikipedia.org/wiki/Mughal_Empire"
+        }
+      },
+      {
+        "id": "31-q-arab-traders",
+        "type": "short",
+        "q": "What was the role of Arab traders in the Mughal Empire?",
+        "answer": "They carried goods across the Indian Ocean, helping Mughal commerce by trading Indian goods abroad.",
+        "accept": [
+          "commerce",
+          "trade"
+        ],
+        "why": "Muslim merchants linked India to Arabia, Africa and Southeast Asia.",
+        "src": {
+          "label": "Wikipedia: Economy of the Mughal Empire",
+          "url": "https://en.wikipedia.org/wiki/Economy_of_the_Mughal_Empire"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-goods",
+        "type": "short",
+        "q": "What goods were imported and exported in the Mughal Empire?",
+        "answer": "Imported silver (and horses); exported cotton textiles, spices and other goods.",
+        "accept": [
+          "silver and textiles"
+        ],
+        "why": "Foreign traders paid in silver for Indian cloth.",
+        "src": {
+          "label": "Wikipedia: Economy of the Mughal Empire",
+          "url": "https://en.wikipedia.org/wiki/Economy_of_the_Mughal_Empire"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-hindu-castes",
+        "type": "short",
+        "q": "What were the Hindu castes?",
+        "answer": "Social groups you are born into: Brahmins (priests), Kshatriyas (warriors and rulers), Vaishyas (merchants) and Shudras (laborers).",
+        "accept": [
+          "brahmin, kshatriya, vaishya, shudra"
+        ],
+        "why": "People outside the four groups were treated as lowest and were often left out.",
+        "src": {
+          "label": "Wikipedia: Caste system in India",
+          "url": "https://en.wikipedia.org/wiki/Caste_system_in_India"
+        }
+      },
+      {
+        "id": "31-q-architecture",
+        "type": "short",
+        "q": "Why is the architecture of the Mughal Empire significant?",
+        "answer": "Buildings like the Taj Mahal blended Persian, Islamic and Indian styles and showed the empire's wealth and power.",
+        "accept": [
+          "taj mahal"
+        ],
+        "why": "Mughal architecture shows both their wealth and their cultural mix.",
+        "src": {
+          "label": "Wikipedia: Mughal architecture",
+          "url": "https://en.wikipedia.org/wiki/Mughal_architecture"
+        }
+      }
+    ]
+  },
+  {
+    "id": "31-decline",
+    "name": "Decline of the gunpowder empires",
+    "items": [
+      {
+        "id": "31-q-why-decline",
+        "type": "short",
+        "q": "Why did the Gunpowder Empires decline?",
+        "answer": "Weak rulers, corruption and rebellions inside, and falling behind Europe in military technology and industry.",
+        "accept": [
+          "failed to modernize"
+        ],
+        "why": "Europe kept improving its armies and economy while these empires stayed the same.",
+        "src": {
+          "label": "Wikipedia: Decline and modernization of the Ottoman Empire",
+          "url": "https://en.wikipedia.org/wiki/Decline_and_modernization_of_the_Ottoman_Empire"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-russia-remained",
+        "type": "short",
+        "q": "Why did Russia remain despite the other Gunpowder Empires falling?",
+        "answer": "Russia modernized and copied western Europe, starting with Peter the Great, and kept a strong central government.",
+        "accept": [
+          "modernized"
+        ],
+        "why": "Russia adopted western armies and technology.",
+        "src": {
+          "label": "Wikipedia: Peter the Great",
+          "url": "https://en.wikipedia.org/wiki/Peter_the_Great"
+        },
+        "unsure": true,
+        "note": "This answer depends on how the AMSCO textbook words it, so check it against your book."
+      },
+      {
+        "id": "31-q-ott-decline",
+        "type": "short",
+        "q": "Summarize why the Ottoman Empire eventually declined.",
+        "answer": "Weak sultans, corruption, loss of military edge, and economic trouble as European powers grew stronger.",
+        "accept": [
+          "weak rulers and corruption"
+        ],
+        "why": "Europeans pulled ahead in technology and trade.",
+        "src": {
+          "label": "Wikipedia: Decline and modernization of the Ottoman Empire",
+          "url": "https://en.wikipedia.org/wiki/Decline_and_modernization_of_the_Ottoman_Empire"
+        }
+      },
+      {
+        "id": "31-q-harem",
+        "type": "short",
+        "q": "What were 'Harem Politics' and how did they contribute to the fall of the Ottoman Empire?",
+        "answer": "Wives and mothers of sultans fought to put their own sons on the throne, which gave the empire weak, inexperienced rulers.",
+        "accept": [
+          "women choosing sultans"
+        ],
+        "why": "Some historians call this period the Sultanate of Women.",
+        "src": {
+          "label": "Wikipedia: Sultanate of Women",
+          "url": "https://en.wikipedia.org/wiki/Sultanate_of_Women"
+        }
+      },
+      {
+        "id": "31-q-saf-decline",
+        "type": "short",
+        "q": "Summarize why the Safavid Empire declined.",
+        "answer": "After Shah Abbas I, weaker shahs, rebellions and pressure from neighbors broke it down, ending with an Afghan invasion in 1722.",
+        "accept": [
+          "weak shahs and rebellion"
+        ],
+        "why": "The Afghan capture of Isfahan in 1722 is often called the end.",
+        "src": {
+          "label": "Wikipedia: Safavid Iran",
+          "url": "https://en.wikipedia.org/wiki/Safavid_Iran"
+        }
+      },
+      {
+        "id": "31-q-mughal-decline",
+        "type": "short",
+        "q": "Summarize why the Mughal Empire declined.",
+        "answer": "Costly wars and religious intolerance under Aurangzeb, revolts, corruption and weak successors, and growing European (British) power.",
+        "accept": [
+          "corruption and weak rulers"
+        ],
+        "why": "By the 1700s the empire had shrunk to a shadow of itself.",
+        "src": {
+          "label": "Wikipedia: Decline of the Mughal Empire",
+          "url": "https://en.wikipedia.org/wiki/Decline_of_the_Mughal_Empire"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,959 @@
+[
+  {
+    "id": "32-england",
+    "name": "England",
+    "items": [
+      {
+        "id": "32-term-divine-right",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "The belief that a monarch's right to rule comes straight from God, so the ruler answers to God and not to Parliament or the people.",
+        "options": [
+          "Divine Right of Kings",
+          "Justice of the Peace",
+          "English Bill of Rights",
+          "Zamindars"
+        ],
+        "answer": 0,
+        "why": "Divine Right of Kings is the idea that God chose the monarch, which kings like James I used to justify their power.",
+        "src": {
+          "label": "Wikipedia: Divine right of kings",
+          "url": "https://en.wikipedia.org/wiki/Divine_right_of_kings"
+        }
+      },
+      {
+        "id": "32-term-justice-peace",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "A local official in England, usually from the gentry, chosen by the Tudor monarchs to keep order and enforce the king's laws in the counties.",
+        "options": [
+          "Tax Farmers",
+          "Justice of the Peace",
+          "Boyars",
+          "Zamindars"
+        ],
+        "answer": 1,
+        "why": "Justices of the peace let the Tudors extend royal authority into the countryside without a big paid bureaucracy.",
+        "src": {
+          "label": "Wikipedia: Justice of the peace",
+          "url": "https://en.wikipedia.org/wiki/Justice_of_the_peace"
+        }
+      },
+      {
+        "id": "32-term-english-bill-rights",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "A 1689 law, passed after the Glorious Revolution, that limited the monarch's powers and protected Parliament's role, including regular meetings and approving taxes.",
+        "options": [
+          "Divine Right of Kings",
+          "Absolutism",
+          "English Bill of Rights",
+          "Justice of the Peace"
+        ],
+        "answer": 2,
+        "why": "The English Bill of Rights made Parliament a lasting check on the king, the opposite of absolutism.",
+        "src": {
+          "label": "Wikipedia: Bill of Rights 1689",
+          "url": "https://en.wikipedia.org/wiki/Bill_of_Rights_1689"
+        }
+      },
+      {
+        "id": "32-q-james-divine-right",
+        "type": "short",
+        "q": "How did King James I use the Divine Right of Kings to justify his rule?",
+        "answer": "He argued that God chose kings, so a king answers only to God and Parliament and the people cannot judge or limit him.",
+        "accept": [
+          "god chose the king",
+          "kings are chosen by god"
+        ],
+        "why": "James I wrote about divine right and used it to resist Parliament's attempts to limit his power.",
+        "src": {
+          "label": "Wikipedia: James VI and I",
+          "url": "https://en.wikipedia.org/wiki/James_VI_and_I"
+        }
+      },
+      {
+        "id": "32-q-justices-role",
+        "type": "short",
+        "q": "What was the role of the justices of the peace in Tudor England and why were they so important?",
+        "answer": "They kept order in their local areas by enforcing laws and hearing minor cases. They were important because they carried out the monarch's rule locally without a large paid bureaucracy.",
+        "accept": [
+          "keep order",
+          "enforce laws"
+        ],
+        "why": "They tied local gentry to the Tudor crown and made royal power reach every county.",
+        "src": {
+          "label": "Wikipedia: Justice of the peace",
+          "url": "https://en.wikipedia.org/wiki/Justice_of_the_peace"
+        },
+        "unsure": true,
+        "note": "I could not check this against the AMSCO textbook, so this is the standard answer; compare it with your notes."
+      },
+      {
+        "id": "32-q-tudor-feudalism",
+        "type": "short",
+        "q": "What was the effect of a stronger Tudor rule on feudalism in England?",
+        "answer": "It weakened feudalism. Nobles lost their private armies and local power, and the crown became the main source of power.",
+        "accept": [
+          "weakened feudalism",
+          "weakened it"
+        ],
+        "why": "Strong Tudor monarchs took power from great lords, which centralized the government.",
+        "src": {
+          "label": "Wikipedia: Tudor period",
+          "url": "https://en.wikipedia.org/wiki/Tudor_period"
+        },
+        "unsure": true,
+        "note": "I could not check this against the AMSCO textbook, so this is the standard answer; compare it with your notes."
+      },
+      {
+        "id": "32-q-parliament-role",
+        "type": "short",
+        "q": "What was the role of Parliament?",
+        "answer": "Parliament made laws and approved taxes, which gave it a way to check the monarch's power.",
+        "accept": [
+          "approve taxes",
+          "make laws"
+        ],
+        "why": "Parliament's power over money and laws let it limit the king, especially after 1689.",
+        "src": {
+          "label": "Wikipedia: Parliament of England",
+          "url": "https://en.wikipedia.org/wiki/Parliament_of_England"
+        }
+      },
+      {
+        "id": "32-q-bill-rights-two",
+        "type": "short",
+        "q": "List two things the English Bill of Rights accomplished.",
+        "answer": "It required Parliament's consent for taxes and for suspending laws, and it guaranteed regular meetings, free elections and free speech in Parliament.",
+        "accept": [
+          "parliament approves taxes",
+          "free speech in parliament"
+        ],
+        "why": "Other points included a ban on cruel punishments and the right to petition the king.",
+        "src": {
+          "label": "Wikipedia: Bill of Rights 1689",
+          "url": "https://en.wikipedia.org/wiki/Bill_of_Rights_1689"
+        }
+      }
+    ]
+  },
+  {
+    "id": "32-france",
+    "name": "France and European monarchs",
+    "items": [
+      {
+        "id": "32-term-absolutism",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "A kind of 17th-century government in Western Europe where monarchs passed laws without parliaments, built professional armies and bureaucracies, set up state churches and set economic policy.",
+        "options": [
+          "Serfdom",
+          "English Bill of Rights",
+          "Justice of the Peace",
+          "Absolutism"
+        ],
+        "answer": 3,
+        "why": "Absolutism put nearly all power in the monarch's hands.",
+        "src": {
+          "label": "Wikipedia: Absolutism (European history)",
+          "url": "https://en.wikipedia.org/wiki/Absolutism_(European_history)"
+        }
+      },
+      {
+        "id": "32-term-tax-farmers",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Private individuals who paid the government up front for the right to collect taxes in an area and kept what they collected beyond that amount.",
+        "options": [
+          "Tax Farmers",
+          "Boyars",
+          "Justice of the Peace",
+          "Janissaries"
+        ],
+        "answer": 0,
+        "why": "Tax farming gave rulers cash quickly but often let collectors overcharge people.",
+        "src": {
+          "label": "Wikipedia: Tax farming",
+          "url": "https://en.wikipedia.org/wiki/Tax_farming"
+        }
+      },
+      {
+        "id": "32-term-louis-xiv",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "The French king who ruled from 1643 to 1715, built the palace of Versailles and became the best-known example of an absolute monarch.",
+        "options": [
+          "Ivan IV",
+          "Louis XIV",
+          "Askia the Great",
+          "Tokugawa Shogunate"
+        ],
+        "answer": 1,
+        "why": "Louis XIV, the Sun King, gathered power in his own hands and ruled without sharing it.",
+        "src": {
+          "label": "Wikipedia: Louis XIV",
+          "url": "https://en.wikipedia.org/wiki/Louis_XIV"
+        }
+      },
+      {
+        "id": "32-q-french-growth",
+        "type": "short",
+        "q": "How did the French government grow in comparison to the English?",
+        "answer": "The French government grew by giving the king complete (absolute) authority, while the English government grew by giving Parliament power that limited the king.",
+        "accept": [
+          "complete authority",
+          "absolute power"
+        ],
+        "why": "France moved toward absolutism and England toward limited monarchy.",
+        "src": {
+          "label": "Wikipedia: Absolutism (European history)",
+          "url": "https://en.wikipedia.org/wiki/Absolutism_(European_history)"
+        }
+      },
+      {
+        "id": "32-q-louis-change",
+        "type": "short",
+        "q": "How did Louis XIV change the French government?",
+        "answer": "He centralized power in the king. He sent out royal officials called intendants, weakened the nobles, and ruled without calling the Estates General.",
+        "accept": [
+          "power to the king",
+          "absolute power"
+        ],
+        "why": "Your worksheet says Louis XVIII, but it means Louis XIV.",
+        "src": {
+          "label": "Wikipedia: Louis XIV",
+          "url": "https://en.wikipedia.org/wiki/Louis_XIV"
+        },
+        "unsure": true,
+        "note": "I could not check this against the AMSCO textbook, so this is the standard answer; compare it with your notes."
+      },
+      {
+        "id": "32-q-intendants-tax-farmers",
+        "type": "short",
+        "q": "Why were intendants called tax farmers?",
+        "answer": "Intendants were royal officials who collected taxes and ran the provinces for the king. Strictly, tax farmers were private collectors, so the textbook is linking the two because both collected taxes.",
+        "accept": [
+          "collected taxes"
+        ],
+        "why": "The worksheet question treats intendants as tax farmers; they were really royal officials, while tax farmers were private contractors.",
+        "src": {
+          "label": "Wikipedia: Intendant",
+          "url": "https://en.wikipedia.org/wiki/Intendant"
+        },
+        "unsure": true,
+        "note": "The worksheet's premise mixes two groups, and I could not check how AMSCO words it."
+      },
+      {
+        "id": "32-q-louis-dictator",
+        "type": "short",
+        "q": "Why was Louis XIV considered a dictator?",
+        "answer": "He held all the power himself and would not share it with nobles or any parliament. He is often quoted as saying \"I am the state.\"",
+        "accept": [
+          "did not share power",
+          "absolute power"
+        ],
+        "why": "He was an absolute monarch, not a true dictator in the modern sense, but he ruled with no limits.",
+        "src": {
+          "label": "Wikipedia: Louis XIV",
+          "url": "https://en.wikipedia.org/wiki/Louis_XIV"
+        }
+      },
+      {
+        "id": "32-q-versailles-nobles",
+        "type": "short",
+        "q": "How did Versailles give Louis XIV power over his nobles?",
+        "answer": "He made the nobles live at his palace, where they competed for his favor. That kept them close and busy, so they could not build their own power at home.",
+        "accept": [
+          "kept them close",
+          "nobles lived there"
+        ],
+        "why": "Versailles turned powerful nobles into courtiers who depended on the king.",
+        "src": {
+          "label": "Wikipedia: Palace of Versailles",
+          "url": "https://en.wikipedia.org/wiki/Palace_of_Versailles"
+        }
+      },
+      {
+        "id": "32-q-legitimize-monarchs",
+        "type": "short",
+        "q": "Describe two ways in which European monarchs sought to legitimize the authority of their monarchs.",
+        "answer": "They claimed the divine right to rule, saying God chose them. They also built grand palaces and supported art and architecture, like Versailles, to show their power.",
+        "accept": [
+          "divine right",
+          "palaces"
+        ],
+        "why": "Monarchs also used state churches and court ceremony to look legitimate.",
+        "src": {
+          "label": "Wikipedia: Absolutism (European history)",
+          "url": "https://en.wikipedia.org/wiki/Absolutism_(European_history)"
+        }
+      }
+    ]
+  },
+  {
+    "id": "32-russia",
+    "name": "Russia",
+    "items": [
+      {
+        "id": "32-term-boyars",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "The high-ranking landowning nobles of Russia who advised the ruler and held great local power until Ivan IV and later tsars cut it back.",
+        "options": [
+          "Janissaries",
+          "Justice of the Peace",
+          "Boyars",
+          "Tax Farmers"
+        ],
+        "answer": 2,
+        "why": "Boyars were Russia's top nobles, and tsars worked to control them.",
+        "src": {
+          "label": "Wikipedia: Boyar",
+          "url": "https://en.wikipedia.org/wiki/Boyar"
+        }
+      },
+      {
+        "id": "32-term-serfdom",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "A labor system where workers farm the land in return for protection but are bound to it and cannot leave or choose a new job.",
+        "options": [
+          "Tax Farmers",
+          "Zamindars",
+          "Janissaries",
+          "Serfdom"
+        ],
+        "answer": 3,
+        "why": "Serfdom tied Russian peasants to the land and grew stronger in this era.",
+        "src": {
+          "label": "Wikipedia: Serfdom",
+          "url": "https://en.wikipedia.org/wiki/Serfdom"
+        }
+      },
+      {
+        "id": "32-term-ivan-iv",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "A cruel 16th-century Russian ruler who terrorized his people and earned a nickname meaning \"the Terrible.\"",
+        "options": [
+          "Ivan IV",
+          "Louis XIV",
+          "Askia the Great",
+          "Tokugawa Shogunate"
+        ],
+        "answer": 0,
+        "why": "Ivan IV, also called Ivan the Terrible, was the first to take the title tsar.",
+        "src": {
+          "label": "Wikipedia: Ivan the Terrible",
+          "url": "https://en.wikipedia.org/wiki/Ivan_the_Terrible"
+        }
+      },
+      {
+        "id": "32-term-romanov",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "The ruling family that took over Russia in 1613 after a period of chaos and ruled until 1917.",
+        "options": [
+          "Tokugawa Shogunate",
+          "Romanov Dynasty",
+          "Louis XIV",
+          "Boyars"
+        ],
+        "answer": 1,
+        "why": "The Romanovs, including Peter the Great, ruled Russia for over 300 years.",
+        "src": {
+          "label": "Wikipedia: House of Romanov",
+          "url": "https://en.wikipedia.org/wiki/House_of_Romanov"
+        }
+      },
+      {
+        "id": "32-q-peter-industrialize",
+        "type": "short",
+        "q": "How did Peter the Great attempt to industrialize Russia?",
+        "answer": "He built state-supported factories, mines and ironworks, mostly to make weapons and ships, and brought in Western experts to help.",
+        "accept": [
+          "built factories",
+          "factories"
+        ],
+        "why": "Russian industry grew under Peter, but it did not earn as much as he wanted.",
+        "src": {
+          "label": "Wikipedia: Peter the Great",
+          "url": "https://en.wikipedia.org/wiki/Peter_the_Great"
+        },
+        "unsure": true,
+        "note": "I could not check this against the AMSCO textbook, so this is the standard answer; compare it with your notes."
+      },
+      {
+        "id": "32-q-peter-revenue",
+        "type": "short",
+        "q": "How did Peter the Great increase revenue for Russia when industrialization didn't bring in as much money as he wanted?",
+        "answer": "He raised taxes, adding a poll tax on every male peasant and taxing many everyday goods.",
+        "accept": [
+          "poll tax",
+          "raised taxes"
+        ],
+        "why": "The poll tax was a main source of money for his wars and new army.",
+        "src": {
+          "label": "Wikipedia: Peter the Great",
+          "url": "https://en.wikipedia.org/wiki/Peter_the_Great"
+        },
+        "unsure": true,
+        "note": "I could not check this against the AMSCO textbook, so this is the standard answer; compare it with your notes."
+      },
+      {
+        "id": "32-q-peter-lands",
+        "type": "short",
+        "q": "What is the significance of the new lands Peter the Great conquered?",
+        "answer": "They gave Russia ports on the Baltic Sea, opening trade and contact with Western Europe. Peter's larger goal was warm-water ports that stayed open all year.",
+        "accept": [
+          "warm-water ports",
+          "ports"
+        ],
+        "why": "Russia's old main port, Arkhangelsk, was far north and iced in for months. Baltic ports were much closer to Western Europe. Your class may call them warm-water ports.",
+        "src": {
+          "label": "Wikipedia: Peter the Great",
+          "url": "https://en.wikipedia.org/wiki/Peter_the_Great"
+        }
+      },
+      {
+        "id": "32-q-st-petersburg",
+        "type": "short",
+        "q": "Describe St. Petersburg.",
+        "answer": "A new capital city that Peter the Great built on the Baltic coast starting in 1703. It was designed in a European style as Russia's \"window to the West.\"",
+        "accept": [
+          "new capital",
+          "window to the west"
+        ],
+        "why": "Building it showed Peter's push to modernize and look toward Europe.",
+        "src": {
+          "label": "Wikipedia: Saint Petersburg",
+          "url": "https://en.wikipedia.org/wiki/Saint_Petersburg"
+        }
+      }
+    ]
+  },
+  {
+    "id": "32-china",
+    "name": "China (Ming)",
+    "items": [
+      {
+        "id": "32-q-ming-mongol",
+        "type": "short",
+        "q": "How did the Ming Dynasty erase Mongol influence in China? (3 examples)",
+        "answer": "They banned Mongol dress, names and language, brought back the Confucian civil service exams, and rebuilt the Great Wall.",
+        "accept": [
+          "banned mongol dress",
+          "civil service exams",
+          "great wall"
+        ],
+        "why": "These steps restored Han Chinese traditions after the Mongol Yuan dynasty.",
+        "src": {
+          "label": "Wikipedia: Hongwu Emperor",
+          "url": "https://en.wikipedia.org/wiki/Hongwu_Emperor"
+        },
+        "unsure": true,
+        "note": "Your textbook may list different three examples; these are the standard ones."
+      },
+      {
+        "id": "32-q-ming-tax-collector",
+        "type": "short",
+        "q": "Who was responsible for collecting taxes in the Ming Dynasty?",
+        "answer": "Local officials, the government's scholar-bureaucrats, with help from village leaders.",
+        "accept": [
+          "local officials",
+          "scholar-officials"
+        ],
+        "why": "The Ming ran taxes through the civil service rather than through tax farmers.",
+        "src": {
+          "label": "Wikipedia: Ming dynasty",
+          "url": "https://en.wikipedia.org/wiki/Ming_dynasty"
+        },
+        "unsure": true,
+        "note": "I could not check this against the AMSCO textbook, and my source is only a general article; compare it with your notes."
+      },
+      {
+        "id": "32-q-ming-tax-form",
+        "type": "short",
+        "q": "Taxes were collected in what form?",
+        "answer": "Mostly in silver in the later Ming period, after an earlier system of grain and labor service.",
+        "accept": [
+          "silver",
+          "grain"
+        ],
+        "why": "The Single Whip reform in the 1500s moved taxes to silver payments.",
+        "src": {
+          "label": "Wikipedia: Single whip law",
+          "url": "https://en.wikipedia.org/wiki/Single_whip_law"
+        },
+        "unsure": true,
+        "note": "I could not check this against the AMSCO textbook, and it may say grain."
+      },
+      {
+        "id": "32-q-tribute-system",
+        "type": "short",
+        "q": "Describe the tribute system. What empires have we learned about that utilized the tribute system?",
+        "answer": "Weaker states gave gifts and showed respect to a stronger ruler, and in return they got trade and protection. Ming China, the Aztec Empire and Songhai used tribute.",
+        "accept": [
+          "gifts for protection",
+          "ming china"
+        ],
+        "why": "Tribute let large empires gain wealth and loyalty without ruling every place directly.",
+        "src": {
+          "label": "Wikipedia: Tributary system of China",
+          "url": "https://en.wikipedia.org/wiki/Tributary_system_of_China"
+        },
+        "unsure": true,
+        "note": "I could not check which empires your class listed; compare it with your notes."
+      }
+    ]
+  },
+  {
+    "id": "32-japan",
+    "name": "Japan",
+    "items": [
+      {
+        "id": "32-term-daimyo",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Powerful regional lords in Japan who controlled large areas of land and kept their own samurai armies.",
+        "options": [
+          "Zamindars",
+          "Janissaries",
+          "Daimyo",
+          "Justice of the Peace"
+        ],
+        "answer": 2,
+        "why": "Daimyo split power in Japan, which is why it was decentralized.",
+        "src": {
+          "label": "Wikipedia: Daimyo",
+          "url": "https://en.wikipedia.org/wiki/Daimyo"
+        }
+      },
+      {
+        "id": "32-term-period-great-peace",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "The more than 250 years, from 1603 to 1868, when Japan had almost no civil war.",
+        "options": [
+          "Daimyo",
+          "Romanov Dynasty",
+          "English Bill of Rights",
+          "Period of Great Peace"
+        ],
+        "answer": 3,
+        "why": "Strong, steady rule kept Japan stable and at peace for a long time.",
+        "src": {
+          "label": "Wikipedia: Edo period",
+          "url": "https://en.wikipedia.org/wiki/Edo_period"
+        }
+      },
+      {
+        "id": "32-term-tokugawa",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "The military government that ruled Japan from Edo from 1603 to 1868, where the shogun held real power and the emperor was only a symbol.",
+        "options": [
+          "Tokugawa Shogunate",
+          "Daimyo",
+          "Romanov Dynasty",
+          "Janissaries"
+        ],
+        "answer": 0,
+        "why": "The Tokugawa shoguns centralized Japan and kept the daimyo under control.",
+        "src": {
+          "label": "Wikipedia: Tokugawa shogunate",
+          "url": "https://en.wikipedia.org/wiki/Tokugawa_shogunate"
+        }
+      },
+      {
+        "id": "32-q-daimyo-decentral",
+        "type": "short",
+        "q": "How did the daimyo contribute to decentralization in Japan?",
+        "answer": "Each daimyo ruled his own lands with his own samurai army, laws and taxes, so power was spread among many lords instead of one central government.",
+        "accept": [
+          "ruled their own lands",
+          "own armies"
+        ],
+        "why": "A land of many daimyo meant weak central control until the Tokugawa.",
+        "src": {
+          "label": "Wikipedia: Daimyo",
+          "url": "https://en.wikipedia.org/wiki/Daimyo"
+        }
+      },
+      {
+        "id": "32-q-samurai-economic",
+        "type": "short",
+        "q": "Why did the samurai have significant economic power in Japan?",
+        "answer": "They were the warrior class serving the daimyo and were paid in rice from the land, so they held wealth and controlled the land and taxes.",
+        "accept": [
+          "paid in rice",
+          "controlled land"
+        ],
+        "why": "Rice stipends tied the samurai's income to the land they served.",
+        "src": {
+          "label": "Wikipedia: Samurai",
+          "url": "https://en.wikipedia.org/wiki/Samurai"
+        },
+        "unsure": true,
+        "note": "I could not check this against the AMSCO textbook, so this is the standard answer; compare it with your notes."
+      },
+      {
+        "id": "32-q-oda-nobunaga",
+        "type": "short",
+        "q": "Summarize the role of Oda Nobunaga.",
+        "answer": "He was a daimyo who began unifying Japan in the late 1500s, using firearms to defeat rival daimyo and ending the old Ashikaga shogunate.",
+        "accept": [
+          "began unifying japan",
+          "started unification"
+        ],
+        "why": "Others finished his work, ending with Tokugawa Ieyasu.",
+        "src": {
+          "label": "Wikipedia: Oda Nobunaga",
+          "url": "https://en.wikipedia.org/wiki/Oda_Nobunaga"
+        }
+      },
+      {
+        "id": "32-q-tokugawa-reorganize",
+        "type": "short",
+        "q": "How did the Tokugawa shogunate reorganize the government of Japan?",
+        "answer": "It centralized power under the shogun in Edo, kept the emperor as a figurehead, and let daimyo run their domains under the shogun's control.",
+        "accept": [
+          "power to the shogun",
+          "shogun in edo"
+        ],
+        "why": "This ended the era of constant fighting among daimyo.",
+        "src": {
+          "label": "Wikipedia: Tokugawa shogunate",
+          "url": "https://en.wikipedia.org/wiki/Tokugawa_shogunate"
+        }
+      },
+      {
+        "id": "32-q-tokugawa-daimyo",
+        "type": "short",
+        "q": "How did the Tokugawa Shogunate control the aristocratic daimyos?",
+        "answer": "Daimyo had to spend every other year in Edo and leave their families there as hostages (alternate attendance, or sankin-kotai).",
+        "accept": [
+          "alternate attendance",
+          "sankin-kotai",
+          "hostages"
+        ],
+        "why": "The system kept daimyo watched and spending money on travel instead of fighting.",
+        "src": {
+          "label": "Wikipedia: Sankin-kōtai",
+          "url": "https://en.wikipedia.org/wiki/Sankin-k%C5%8Dtai"
+        }
+      }
+    ]
+  },
+  {
+    "id": "32-ottoman-mughal",
+    "name": "Mughal and Ottoman administration",
+    "items": [
+      {
+        "id": "32-term-janissaries",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Elite Ottoman soldiers, mostly Christian boys taken from conquered lands, raised as Muslims and trained to be loyal only to the sultan.",
+        "options": [
+          "Daimyo",
+          "Janissaries",
+          "Boyars",
+          "Zamindars"
+        ],
+        "answer": 1,
+        "why": "The janissaries were a loyal standing army that helped the sultan control the empire.",
+        "src": {
+          "label": "Wikipedia: Janissary",
+          "url": "https://en.wikipedia.org/wiki/Janissary"
+        }
+      },
+      {
+        "id": "32-term-zamindars",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "Local landholding lords in the Mughal Empire who collected tribute from peasants for the emperor.",
+        "options": [
+          "Boyars",
+          "Janissaries",
+          "Zamindars",
+          "Justice of the Peace"
+        ],
+        "answer": 2,
+        "why": "Zamindars kept a share of the money, and over time their power weakened the Mughal government.",
+        "src": {
+          "label": "Wikipedia: Zamindar",
+          "url": "https://en.wikipedia.org/wiki/Zamindar"
+        }
+      },
+      {
+        "id": "32-term-taj-mahal",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "A white marble tomb built at Agra in the 1600s by the Mughal emperor Shah Jahan for his wife, famous for its Islamic, Persian and Indian design.",
+        "options": [
+          "Tokugawa Shogunate",
+          "Romanov Dynasty",
+          "Absolutism",
+          "Taj Mahal"
+        ],
+        "answer": 3,
+        "why": "The Taj Mahal is the best-known example of Mughal architecture.",
+        "src": {
+          "label": "Wikipedia: Taj Mahal",
+          "url": "https://en.wikipedia.org/wiki/Taj_Mahal"
+        }
+      },
+      {
+        "id": "32-q-akbar",
+        "type": "short",
+        "q": "Summarize how Akbar established an efficient government in India.",
+        "answer": "He built a ranked bureaucracy of officials (the mansabdar system), set a steady tax system, and was tolerant of Hindus, which won loyalty across the empire.",
+        "accept": [
+          "mansabdar system",
+          "tolerance",
+          "tolerated hindus"
+        ],
+        "why": "Akbar ended the tax on non-Muslims and gave Hindus government jobs.",
+        "src": {
+          "label": "Wikipedia: Akbar",
+          "url": "https://en.wikipedia.org/wiki/Akbar"
+        }
+      },
+      {
+        "id": "32-q-zamindars-impact",
+        "type": "short",
+        "q": "How did Zamindars eventually impact the Mughal Empire?",
+        "answer": "They collected taxes, kept a large share and grew powerful with local armies. This weakened the emperor's control and the empire's finances.",
+        "accept": [
+          "weakened central control",
+          "gained power"
+        ],
+        "why": "Zamindars helped decentralize the empire as the emperor lost power.",
+        "src": {
+          "label": "Wikipedia: Zamindar",
+          "url": "https://en.wikipedia.org/wiki/Zamindar"
+        }
+      },
+      {
+        "id": "32-q-mughal-decline-economic",
+        "type": "short",
+        "q": "What eventually contributed to the economic decline of the Mughal empire?",
+        "answer": "Costly wars, heavy taxes on peasants, and corrupt tax collectors cut the empire's income and weakened it.",
+        "accept": [
+          "costly wars",
+          "heavy taxes",
+          "corruption"
+        ],
+        "why": "Aurangzeb's long wars in the south were especially expensive.",
+        "src": {
+          "label": "Wikipedia: Mughal Empire",
+          "url": "https://en.wikipedia.org/wiki/Mughal_Empire"
+        },
+        "unsure": true,
+        "note": "I could not check this against the AMSCO textbook, so this is the standard answer; compare it with your notes."
+      },
+      {
+        "id": "32-q-mughal-architecture",
+        "type": "short",
+        "q": "Mughal India was marked by magnificent architectural accomplishments. What were they?",
+        "answer": "Examples include the Taj Mahal, the Red Fort, Humayun's Tomb and Fatehpur Sikri.",
+        "accept": [
+          "taj mahal",
+          "red fort"
+        ],
+        "why": "Mughal builders mixed Persian, Islamic and Indian styles.",
+        "src": {
+          "label": "Wikipedia: Mughal architecture",
+          "url": "https://en.wikipedia.org/wiki/Mughal_architecture"
+        }
+      },
+      {
+        "id": "32-q-mughal-islamic-art",
+        "type": "short",
+        "q": "How did the Mughal Empire use art from Islam?",
+        "answer": "They used geometric patterns, calligraphy, domes and arches in their buildings, and painted detailed miniatures in a Persian style.",
+        "accept": [
+          "geometric patterns",
+          "calligraphy"
+        ],
+        "why": "Islamic art avoided pictures of God, so patterns and writing were common.",
+        "src": {
+          "label": "Wikipedia: Mughal architecture",
+          "url": "https://en.wikipedia.org/wiki/Mughal_architecture"
+        }
+      },
+      {
+        "id": "32-q-mughal-art-show",
+        "type": "short",
+        "q": "What did the artistic accomplishments of Mughal India show?",
+        "answer": "They showed the rulers' wealth and power and a blend of Islamic, Persian and Hindu cultures.",
+        "accept": [
+          "wealth and power",
+          "blend of cultures"
+        ],
+        "why": "Grand art and buildings helped make Mughal rule look legitimate.",
+        "src": {
+          "label": "Wikipedia: Mughal architecture",
+          "url": "https://en.wikipedia.org/wiki/Mughal_architecture"
+        },
+        "unsure": true,
+        "note": "I could not check this against the AMSCO textbook, so this is the standard answer; compare it with your notes."
+      },
+      {
+        "id": "32-q-ottoman-taxes",
+        "type": "short",
+        "q": "How did the Ottomans raise taxes to support their empire and military?",
+        "answer": "They used tax farming, taxed land and trade, and charged non-Muslims a special tax (the jizya).",
+        "accept": [
+          "tax farming",
+          "tax farmers"
+        ],
+        "why": "Tax farming gave the government cash up front for its army.",
+        "src": {
+          "label": "Wikipedia: Iltizam",
+          "url": "https://en.wikipedia.org/wiki/Iltizam"
+        }
+      },
+      {
+        "id": "32-q-tax-farmers-wealth",
+        "type": "short",
+        "q": "How did tax farmers grow wealthy? Were they corrupt?",
+        "answer": "They bought the right to collect taxes, paid the state a set sum, and kept the extra. Many were corrupt because they overcharged peasants.",
+        "accept": [
+          "kept the extra",
+          "kept part of the taxes"
+        ],
+        "why": "Yes, many squeezed peasants to raise their own profit.",
+        "src": {
+          "label": "Wikipedia: Tax farming",
+          "url": "https://en.wikipedia.org/wiki/Tax_farming"
+        }
+      },
+      {
+        "id": "32-q-ottoman-change",
+        "type": "short",
+        "q": "How did the Ottoman Empire change at this time?",
+        "answer": "It grew into a huge, wealthy empire with a strong central government. Later, power shifted to local leaders and tax farmers.",
+        "accept": [
+          "expanded",
+          "grew"
+        ],
+        "why": "Conquests like Constantinople in 1453 started a long period of growth.",
+        "src": {
+          "label": "Wikipedia: Ottoman Empire",
+          "url": "https://en.wikipedia.org/wiki/Ottoman_Empire"
+        },
+        "unsure": true,
+        "note": "I could not check this against the AMSCO textbook, so this is the standard answer; compare it with your notes."
+      },
+      {
+        "id": "32-q-ottoman-continuity",
+        "type": "short",
+        "q": "What were some continuities in the Ottoman Empire at the time?",
+        "answer": "The sultan stayed the supreme ruler, Islam stayed the state religion, and non-Muslims were allowed to run their own communities (the millet system).",
+        "accept": [
+          "sultan ruled",
+          "islam"
+        ],
+        "why": "These things stayed steady even as the empire grew.",
+        "src": {
+          "label": "Wikipedia: Millet (Ottoman Empire)",
+          "url": "https://en.wikipedia.org/wiki/Millet_(Ottoman_Empire)"
+        },
+        "unsure": true,
+        "note": "I could not check this against the AMSCO textbook, so this is the standard answer; compare it with your notes."
+      },
+      {
+        "id": "32-q-grand-bazaar",
+        "type": "short",
+        "q": "What was the Grand Bazaar and why was it important?",
+        "answer": "A huge covered market in Istanbul, started after the 1453 conquest. It was a hub of trade between Europe and Asia and brought wealth and taxes to the empire.",
+        "accept": [
+          "covered market",
+          "marketplace"
+        ],
+        "why": "It showed Istanbul's role at the center of world trade.",
+        "src": {
+          "label": "Wikipedia: Grand Bazaar, Istanbul",
+          "url": "https://en.wikipedia.org/wiki/Grand_Bazaar,_Istanbul"
+        }
+      },
+      {
+        "id": "32-q-istanbul-center",
+        "type": "short",
+        "q": "Istanbul was a center of what?",
+        "answer": "Trade, culture, religion and government in the Ottoman Empire.",
+        "accept": [
+          "trade",
+          "culture"
+        ],
+        "why": "Istanbul linked Europe and Asia, and was the Ottoman capital.",
+        "src": {
+          "label": "Wikipedia: Istanbul",
+          "url": "https://en.wikipedia.org/wiki/Istanbul"
+        },
+        "unsure": true,
+        "note": "I could not check this against the AMSCO textbook, so this is the standard answer; compare it with your notes."
+      },
+      {
+        "id": "32-q-ottoman-culture",
+        "type": "short",
+        "q": "Describe the cultural contributions of the Ottoman Empire.",
+        "answer": "They built great mosques and palaces, such as the Suleymaniye Mosque by Sinan and Topkapi Palace, and made fine tiles, calligraphy and miniature paintings.",
+        "accept": [
+          "mosques",
+          "architecture"
+        ],
+        "why": "Ottoman architecture blended Byzantine, Islamic and Persian styles.",
+        "src": {
+          "label": "Wikipedia: Ottoman architecture",
+          "url": "https://en.wikipedia.org/wiki/Ottoman_architecture"
+        },
+        "unsure": true,
+        "note": "I could not check this against the AMSCO textbook, so this is the standard answer; compare it with your notes."
+      }
+    ]
+  },
+  {
+    "id": "32-songhai",
+    "name": "Songhai",
+    "items": [
+      {
+        "id": "32-term-askia",
+        "type": "mc",
+        "q": "Which term matches this description?",
+        "stimulus": "A Songhai ruler who overthrew Sunni Baru, and whose reign was the high point of Songhai culture.",
+        "options": [
+          "Askia the Great",
+          "Ivan IV",
+          "Louis XIV",
+          "Tokugawa Shogunate"
+        ],
+        "answer": 0,
+        "why": "Askia Muhammad strengthened Islam and the government of Songhai.",
+        "src": {
+          "label": "Wikipedia: Askia Mohammad I",
+          "url": "https://en.wikipedia.org/wiki/Askia_Mohammad_I"
+        }
+      },
+      {
+        "id": "32-q-askia-changes",
+        "type": "short",
+        "q": "Describe two ways Askia the Great of Songhai changed his empire in order to legitimize his rule.",
+        "answer": "He strengthened Islam, going on a pilgrimage to Mecca and backing Muslim scholars and judges. He also reorganized the government with provinces, governors and a professional army.",
+        "accept": [
+          "strengthened islam",
+          "reorganized government"
+        ],
+        "why": "Both steps made his rule look legitimate and made the empire easier to control.",
+        "src": {
+          "label": "Wikipedia: Askia Mohammad I",
+          "url": "https://en.wikipedia.org/wiki/Askia_Mohammad_I"
+        },
+        "unsure": true,
+        "note": "I could not check this against the AMSCO textbook, so this is the standard answer; compare it with your notes."
+      }
+    ]
+  }
+]

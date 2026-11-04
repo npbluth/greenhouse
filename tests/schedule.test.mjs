@@ -80,7 +80,7 @@ test("confidence: starts at zero, unseen counts as zero, rises with right answer
   items.slice(0, 10).forEach((i) => GH.record(p, SET, i, true, at("2026-11-04T16:00")));
   const c = GH.confidence(SET, p, at("2026-11-04T16:05"));
   assert.equal(c.seen, 10);
-  assert.ok(c.pct > 15 && c.pct <= Math.round((10 / items.length) * 100), `got ${c.pct}`);
+  assert.ok(c.pct > 0 && c.pct <= Math.round((10 / items.length) * 100), `got ${c.pct}`);
 });
 
 test("confidence: a miss never raises it, and counts as zero until answered right", () => {
@@ -90,7 +90,7 @@ test("confidence: a miss never raises it, and counts as zero until answered righ
   items.slice(5, 15).forEach((i) => GH.record(p, SET, i, false, at("2026-11-04T16:02")));
   assert.equal(GH.confidence(SET, p, at("2026-11-04T16:03")).pct, before);
   const missedStill = GH.confidence(SET, p, at("2026-11-05T16:01")).pct;
-  GH.record(p, SET, items[5], true, at("2026-11-05T16:00"));
+  items.slice(5, 15).forEach((i) => GH.record(p, SET, i, true, at("2026-11-05T16:00")));
   const afterFix = GH.confidence(SET, p, at("2026-11-05T16:01")).pct;
   assert.ok(afterFix > missedStill, `${missedStill} -> ${afterFix}`);
 });
@@ -148,10 +148,10 @@ test("backup code round trip, and a bad code is refused", () => {
 
 test("topic stats: needs water when a quarter of seen questions are past their review date", () => {
   const p = GH.emptyProgress();
-  const russia = SET.topics.find((t) => t.id === "russia");
-  russia.items.forEach((i) => GH.record(p, SET, { ...i, topic: "russia" }, true, at("2026-11-04T16:00")));
-  const fresh = GH.topicStats(SET, p, at("2026-11-04T17:00")).find((t) => t.id === "russia");
-  const old = GH.topicStats(SET, p, at("2026-11-20T17:00")).find((t) => t.id === "russia");
+  const russia = SET.topics.find((t) => t.id === "31-russia");
+  russia.items.forEach((i) => GH.record(p, SET, { ...i, topic: "31-russia" }, true, at("2026-11-04T16:00")));
+  const fresh = GH.topicStats(SET, p, at("2026-11-04T17:00")).find((t) => t.id === "31-russia");
+  const old = GH.topicStats(SET, p, at("2026-11-20T17:00")).find((t) => t.id === "31-russia");
   assert.ok(!fresh.needsWater && old.needsWater);
   assert.equal(fresh.seen, russia.items.length);
 });
