@@ -98,7 +98,17 @@ input[type=text]:focus{border-color:var(--leaf);outline:none}
 .missed{display:grid;gap:8px;padding-top:16px;border-top:2px solid var(--line)}
 .missed:first-of-type{border-top:0;padding-top:0}
 .self{display:grid;gap:10px}
-.notice{background:var(--sun);color:var(--sun-ink);border-radius:14px;padding:12px 16px;font-size:15px;font-weight:600}
+/* Test confidence ring */
+.confrow{display:flex;gap:20px;align-items:center}
+.ring{position:relative;flex:none}
+.ring svg{width:100%;height:100%;display:block}
+.ringfill{transition:stroke-dashoffset 1s cubic-bezier(.2,.8,.2,1)}
+.ringnum{position:absolute;inset:0;display:grid;place-content:center;grid-auto-flow:column;align-items:baseline;font-family:var(--display);color:var(--leaf)}
+.ringnum b{font-weight:400;font-size:34px;line-height:1}
+.ringnum small{font-size:18px;margin-left:1px}
+@media (max-width:360px){.confrow{flex-direction:column;align-items:flex-start}}
+details summary{cursor:pointer;min-height:44px;display:flex;align-items:center}
+.notice{margin:0;background:var(--sun);color:var(--sun-ink);border-radius:14px;padding:12px 16px;font-size:15px;font-weight:600}
 /* Celebration pieces */
 .burst{position:fixed;left:0;top:0;pointer-events:none;z-index:50;width:12px;height:12px}
 .burst.leaf{border-radius:0 80% 0 80%;background:var(--leaf)}
@@ -120,8 +130,9 @@ input[type=text]:focus{border-color:var(--leaf);outline:none}
 <main id="app" aria-live="polite"></main>
 <noscript><p style="padding:20px">Greenhouse needs JavaScript turned on.</p></noscript>
 <!-- Bump ?v= when publishing a change, so phones fetch the new copy. -->
-<script src="logic.js?v=1"></script>
-<script src="sets/apwh-unit3.js?v=1"></script>
-<script src="app.js?v=1"></script>
+<script src="vendor/ts-fsrs-5.4.2.umd.js"></script>
+<script src="logic.js?v=2"></script>
+<script src="sets/apwh-unit3.js?v=2"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>

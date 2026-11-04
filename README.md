@@ -2,8 +2,22 @@
 
 A small study app for AP classes. Family use only. Plan: `~/Downloads/Greenhouse_Brief_v1.md`.
 
-Phase 1: one study set (AP World History, Unit 3.1 and 3.2), a practice round and a readiness check.
-No saved progress yet; that's Phase 2.
+One study set so far (AP World History, Unit 3.1 and 3.2).
+
+- Phase 1: practice round and readiness check.
+- Phase 2: answers saved on the device, spaced review with FSRS (`vendor/ts-fsrs-5.4.2.umd.js`, MIT),
+  Today's round, Progress screen, test confidence on the home page, backup code to move devices.
+
+## The learning rules (all in `logic.js`, all tested)
+
+- Every first try in a round is recorded. A right answer is FSRS "Good", a miss is "Again".
+- Before the test date, no review gap is longer than half the time left to the test.
+- Today's round: due questions (most faded first) plus at least 3 new ones, topics mixed, 15 at most.
+  No count of overdue questions is ever shown.
+- Solid: a typed answer right on two different days, FSRS stability of 7+ days, and not faded below
+  80% recall. A miss resets it. Multiple choice never makes a question solid.
+- Test confidence: the average recall chance across every question in the set, right now.
+  Unseen questions and questions missed last time count as zero.
 
 ## Files
 
@@ -11,7 +25,8 @@ No saved progress yet; that's Phase 2.
 |---|---|
 | `index.html` | The page and its look |
 | `app.js` | The screens |
-| `logic.js` | Rules: answer matching, building rounds, scoring. Tested. |
+| `logic.js` | Rules: answer matching, building rounds, scoring, scheduling, confidence. Tested. |
+| `vendor/` | The FSRS library, copied in so the site depends on no outside server |
 | `sets/*.js` | Study sets. Content only, no app code. |
 | `tools/check-set.mjs` | Checks every set is complete and correctly formatted |
 | `tests/` | Automated tests |
