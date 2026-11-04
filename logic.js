@@ -247,6 +247,49 @@
     return Math.max(2, Math.round(items.reduce((a, i) => a + (i.type === "mc" ? 0.5 : i.type === "define" ? 1.25 : 0.75), 0)));
   }
 
+  /* ---------- Weekly sets: one more week unlocks each Monday, with a test every week ---------- */
+  function mondayOf(t) {
+    const d = new Date(t);
+    d.setHours(0, 0, 0, 0);
+    d.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+    return d;
+  }
+  function maxWeek(set) { return Math.max(...set.topics.map((t) => t.week || 0)); }
+
+  /* Which week the class is on by the calendar, if it keeps pace. */
+  function calendarWeek(set, now) {
+    const w = set.weekly;
+    if (!w) return null;
+    const start = new Date(w.monday + "T00:00:00");
+    const weeks = Math.round((mondayOf(now) - start) / (7 * DAY));
+    return Math.min(maxWeek(set), Math.max(1, w.week + weeks));
+  }
+
+  /* Next test day on or after today, as YYYY-MM-DD. */
+  function nextTestDate(set, now) {
+    const d = new Date(now);
+    d.setHours(0, 0, 0, 0);
+    while (d.getDay() !== set.weekly.testWeekday) d.setDate(d.getDate() + 1);
+    return dayKey(d);
+  }
+
+  /* The weeks that count right now. A manual setting ({week, calendarWeek} saved when she changed it)
+     keeps its offset, so a class that's a week behind stays a week behind as Mondays pass. */
+  function coveredWeek(set, now, setting) {
+    const cal = calendarWeek(set, now);
+    if (cal === null) return null;
+    const w = setting ? setting.week + (cal - setting.calendarWeek) : cal;
+    return Math.min(maxWeek(set), Math.max(1, w));
+  }
+
+  /* The set as she studies it today: only weeks so far, with this week's test date. */
+  function activeSet(set, now, setting) {
+    if (!set.weekly) return set;
+    const upTo = coveredWeek(set, now, setting);
+    return { ...set, upTo, testDate: nextTestDate(set, now), subtitle: upTo === 1 ? "Week 1" : `Weeks 1 to ${upTo}`,
+      topics: set.topics.filter((t) => !t.week || t.week <= upTo) };
+  }
+
   /* Backup code for moving progress to another device. */
   function exportCode(progress) {
     const json = JSON.stringify(progress);
@@ -261,7 +304,7 @@
     return p;
   }
 
-  const api = { shuffle, normalize, editDistance, matches, interleave, allItems, buildPractice, buildCheck, scoreCheck, flagLink, answerText,
+  const api = { calendarWeek, nextTestDate, coveredWeek, activeSet, maxWeek, shuffle, normalize, editDistance, matches, interleave, allItems, buildPractice, buildCheck, scoreCheck, flagLink, answerText,
     checkDefinition, isRecall, buildMatch, dayKey, emptyProgress, setProgress, record, recall, dueAt, isSolid, buildToday, topicStats, confidence, minutesFor, exportCode, importCode };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   root.GH = Object.assign(root.GH || {}, api);

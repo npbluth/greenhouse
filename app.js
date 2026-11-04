@@ -4,11 +4,25 @@ const SETS = globalThis.GH_SETS;
 const DAY = 864e5;
 /* Which test she's studying for. Remembered on this device; the picker shows when there's a choice. */
 const SET_KEY = "greenhouse.set";
-let SET = (() => {
+/* Weekly sets: which weeks count, if she changed it from the calendar's guess. Saved per set. */
+const weekKey = (id) => "greenhouse.weeks." + id;
+function weekSetting(id) {
+  try { return JSON.parse(localStorage.getItem(weekKey(id)) || "null"); } catch (e) { return null; }
+}
+const activate = (raw) => raw && GH.activeSet(raw, Date.now(), weekSetting(raw.id));
+let SET = activate((() => {
   try { return SETS.find((x) => x.id === localStorage.getItem(SET_KEY)) || null; } catch (e) { return null; }
-})() || (SETS.length === 1 ? SETS[0] : null);
+})() || (SETS.length === 1 ? SETS[0] : null));
+const rawSet = () => SETS.find((x) => x.id === SET.id);
+function setWeek(n) {
+  const raw = rawSet();
+  try { localStorage.setItem(weekKey(raw.id), JSON.stringify({ week: n, calendarWeek: GH.calendarWeek(raw, Date.now()) })); } catch (e) {}
+  SET = activate(raw);
+  s = { view: "home" };
+  render();
+}
 function chooseSet(id) {
-  SET = SETS.find((x) => x.id === id);
+  SET = activate(SETS.find((x) => x.id === id));
   try { localStorage.setItem(SET_KEY, id); } catch (e) {}
   s = { view: "home" };
   render();
@@ -71,34 +85,19 @@ function garden() {
   return `<div class="garden" role="img" aria-label="${done} of ${q.base.length} answered">${pots.join("")}</div>`;
 }
 
-/* Confetti: colored paper pops up from the answer, then tumbles down with gravity. */
+/* Confetti: canvas-confetti (vendor/, ISC license). Pieces tilt and flutter as they fall. */
 const CONFETTI = ["#ef4f7e", "#ffc533", "#1a8a5a", "#3fa9f5", "#8a5cf6", "#ff8a3d"];
 function burst(el, big = false) {
-  if (calm() || !el) return;
-  const r = el.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-  const count = big ? 90 : 46, fall = window.innerHeight - cy + 40;
-  for (let n = 0; n < count; n++) {
-    const p = document.createElement("span");
-    const shape = n % 7 === 0 ? "petal" : n % 3 === 0 ? "dot" : "paper";
-    p.className = "burst " + shape;
-    if (shape !== "petal") p.style.background = CONFETTI[n % CONFETTI.length];
-    document.body.appendChild(p);
-    const ang = -Math.PI / 2 + (Math.random() - 0.5) * Math.PI * 1.3; // mostly upward
-    const speed = (big ? 240 : 170) + Math.random() * 160;
-    const dx = Math.cos(ang) * speed, up = Math.sin(ang) * speed;
-    const spin = Math.random() * 900 - 450, flip = 0.2 + Math.random() * 0.8;
-    const dur = 1300 + Math.random() * 900;
-    p.animate(
-      [
-        { transform: `translate(${cx}px,${cy}px) rotate(0deg) scaleY(1)`, opacity: 1 },
-        { transform: `translate(${cx + dx * 0.7}px,${cy + up}px) rotate(${spin * 0.4}deg) scaleY(${flip})`, opacity: 1, offset: 0.3 },
-        { transform: `translate(${cx + dx}px,${cy + up + fall * 0.6}px) rotate(${spin}deg) scaleY(${-flip})`, opacity: 0.9, offset: 0.75 },
-        { transform: `translate(${cx + dx * 1.1}px,${cy + up + fall}px) rotate(${spin * 1.3}deg) scaleY(1)`, opacity: 0 },
-      ],
-      { duration: dur, easing: "cubic-bezier(.2,.6,.4,1)" }
-    ).onfinish = () => p.remove();
+  if (!el || typeof confetti !== "function") return;
+  const r = el.getBoundingClientRect();
+  const origin = { x: (r.left + r.width / 2) / window.innerWidth, y: (r.top + r.height / 2) / window.innerHeight };
+  const base = { origin, colors: CONFETTI, disableForReducedMotion: true, zIndex: 50, ticks: 260, gravity: 0.7, decay: 0.92, scalar: 1.1 };
+  confetti({ ...base, particleCount: big ? 120 : 60, spread: big ? 100 : 70, startVelocity: big ? 42 : 32 });
+  if (big) {
+    confetti({ ...base, particleCount: 60, angle: 60, spread: 60, origin: { x: 0, y: 0.7 } });
+    confetti({ ...base, particleCount: 60, angle: 120, spread: 60, origin: { x: 1, y: 0.7 } });
   }
-  if (navigator.vibrate) navigator.vibrate(12);
+  try { if (navigator.vibrate && navigator.userActivation && navigator.userActivation.hasBeenActive) navigator.vibrate(12); } catch (e) {}
 }
 
 function daysLeft(set = SET) {
@@ -132,7 +131,7 @@ function vPick() {
   const now = Date.now();
   return `<div class="top"><span class="logo">${LOGO}Greenhouse</span></div>
   <section class="hero rise"><h1>What are you studying for?</h1><p class="muted">Pick your test. Your progress stays on this device.</p></section>
-  ${SETS.map((x) => `<button class="card pickcard" data-set="${esc(x.id)}"><div>${countdown(daysLeft(x))}</div><h2>${esc(x.title)}</h2><p class="muted small">${esc(x.subtitle)}</p>
+  ${SETS.map(activate).map((x) => `<button class="card pickcard" data-set="${esc(x.id)}"><div>${countdown(daysLeft(x))}</div><h2>${esc(x.title)}</h2><p class="muted small">${esc(x.subtitle)}</p>
     <p class="small"><b>${GH.confidence(x, P, now).pct}%</b> <span class="muted">test confidence</span></p></button>`).join("")}`;
 }
 
@@ -148,7 +147,7 @@ function vHome() {
     : `If the test were today, you'd likely get about <b>${conf.pct}%</b> of these questions right.`;
   return `<div class="top"><span class="logo">${LOGO}Greenhouse</span><span class="row" style="gap:16px">${SETS.length > 1 ? `<button class="link small" data-act="pick">Switch test</button>` : ""}<button class="link small" data-act="progress">Progress</button></span></div>
   ${saveWarning()}
-  <section class="hero rise"><div>${chip}</div><h1>${esc(shortTitle(SET))}</h1><p class="muted">${esc(SET.subtitle)}</p></section>
+  <section class="hero rise"><div>${chip}</div><h1>${esc(shortTitle(SET))}</h1><p class="muted">${esc(SET.subtitle)}${SET.weekly ? ` · <button class="link small" data-act="weeks">Change</button>` : ""}</p></section>
   <section class="card conf"><div class="confrow">${ring(conf.pct, 112)}<div style="display:grid;gap:6px;min-width:0"><h2>Test confidence</h2><p class="small">${confLine}</p></div></div>
     <p class="small muted">${conf.solid} of ${conf.recallTotal} typed answers solid · ${conf.seen} of ${conf.total} questions seen</p>${lastCheck()}</section>
   ${today.length
@@ -158,6 +157,14 @@ function vHome() {
   <section class="card"><h2>Readiness check</h2><p class="muted small">${CHECK_SIZE} questions across every topic, with no hints. At the end you get a score for each topic, so you know where you stand.</p><button class="btn alt" data-act="check">Take the check</button></section>
   <section style="display:grid;gap:12px"><h3>Practice one topic</h3><div class="chips">${SET.topics.map((t) => `<button class="topicchip" data-topic="${esc(t.id)}">${esc(t.name)}</button>`).join("")}</div></section>
   <p class="small muted">Every answer shows its source. If something looks wrong, tap <b>Looks wrong</b> and send the text.</p>`;
+}
+
+/* Weekly sets: pick how far the class has gotten. */
+function vWeeks() {
+  const raw = rawSet(), cal = GH.calendarWeek(raw, Date.now());
+  return `<div class="top"><button class="link small" data-act="home">‹ Home</button></div>
+  <section class="hero rise"><h1 style="font-size:34px">How far is your class?</h1><p class="muted">Pick the last week your next test covers. It moves forward on its own every Monday.</p></section>
+  <div class="options">${raw.topics.map((t) => `<button class="option${t.week === SET.upTo ? " pick" : ""}" data-week="${t.week}"><span class="mark">${t.week}</span><span>${esc(t.name.replace(/^Week \d+: /, ""))}${t.week === cal ? ` <span class="small muted">(this week, by the calendar)</span>` : ""}</span></button>`).join("")}</div>`;
 }
 
 /* Matching game: tap a term, then its definition. Right pairs pop with confetti. */
@@ -453,7 +460,7 @@ function showScore() {
 function render() {
   const app = $("app");
   if (!SET && s.view !== "pick") s = { view: "pick" };
-  const views = { pick: vPick, match: vMatch, home: vHome, progress: vProgress, quiz: vQuiz, practiceDone: vPracticeDone, selfCheck: vSelfCheck, checkDone: vCheckDone };
+  const views = { weeks: vWeeks, pick: vPick, match: vMatch, home: vHome, progress: vProgress, quiz: vQuiz, practiceDone: vPracticeDone, selfCheck: vSelfCheck, checkDone: vCheckDone };
   app.innerHTML = views[s.view]();
   bind();
   // Fill rings and topic bars from zero, so changes are visible.
@@ -472,6 +479,7 @@ function act(a) {
   else if (a === "check") startQuiz("check");
   else if (a === "progress") { s = { view: "progress" }; render(); }
   else if (a === "pick") { s = { view: "pick" }; render(); }
+  else if (a === "weeks") { s = { view: "weeks" }; render(); }
   else if (a === "match") startMatch();
   else if (a === "copycode") {
     const code = GH.exportCode(P), msg = $("codemsg");
@@ -501,6 +509,7 @@ function act(a) {
 
 function bind() {
   document.querySelectorAll("[data-act]").forEach((b) => (b.onclick = () => act(b.dataset.act)));
+  document.querySelectorAll("[data-week]").forEach((b) => (b.onclick = () => setWeek(+b.dataset.week)));
   document.querySelectorAll("[data-set]").forEach((b) => (b.onclick = () => chooseSet(b.dataset.set)));
   document.querySelectorAll("[data-term]").forEach((b) => (b.onclick = () => { s.match.picked = b.dataset.term; s.match.wrong = null; render(); }));
   document.querySelectorAll("[data-def]").forEach((b) => (b.onclick = () => pickDefinition(b.dataset.def)));

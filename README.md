@@ -61,6 +61,12 @@ Each set file adds one set: `id`, `title`, `subtitle`, optional `testDate` (`202
 - Multiple choice can show a passage above the question with `stimulus`.
 - `src.url` is optional for class notes; `src.label` is required.
 
+Weekly sets (Sports Medicine): give the set `weekly: { week, monday, testWeekday }` and each topic a
+`week`. The app shows only the weeks so far (one more unlocks each Monday), counts down to the next
+test day, and lets her change the week on the home page if the class is ahead or behind.
+
+Confetti is canvas-confetti 1.9.4 (`vendor/`, ISC license). The app is light mode only.
+
 Each set file is added to `index.html` with its own script tag. With more than one set, the app
 opens on a "What are you studying for?" picker and remembers the choice on that device.
 
