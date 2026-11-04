@@ -1,14 +1,25 @@
 /* Greenhouse screens. All learning rules live in logic.js. */
 "use strict";
-const SET = globalThis.GH_SETS[0];
+const SETS = globalThis.GH_SETS;
 const DAY = 864e5;
+/* Which test she's studying for. Remembered on this device; the picker shows when there's a choice. */
+const SET_KEY = "greenhouse.set";
+let SET = (() => {
+  try { return SETS.find((x) => x.id === localStorage.getItem(SET_KEY)) || null; } catch (e) { return null; }
+})() || (SETS.length === 1 ? SETS[0] : null);
+function chooseSet(id) {
+  SET = SETS.find((x) => x.id === id);
+  try { localStorage.setItem(SET_KEY, id); } catch (e) {}
+  s = { view: "home" };
+  render();
+}
 const PRACTICE_SIZE = 12, CHECK_SIZE = 20;
 const CHEERS = ["Nailed it!", "Yes!", "Exactly right.", "Look at you go.", "Sharp!", "That's the one.", "Correct!", "Got it!"];
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const calm = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-let s = { view: "home" }; // the whole screen state
+let s = { view: SET ? "home" : "pick" }; // the whole screen state
 
 /* ---------- saved progress (this phone only) ---------- */
 const KEY = "greenhouse.progress.v1";
@@ -60,30 +71,39 @@ function garden() {
   return `<div class="garden" role="img" aria-label="${done} of ${q.base.length} answered">${pots.join("")}</div>`;
 }
 
-function burst(el) {
+/* Confetti: colored paper pops up from the answer, then tumbles down with gravity. */
+const CONFETTI = ["#ef4f7e", "#ffc533", "#1a8a5a", "#3fa9f5", "#8a5cf6", "#ff8a3d"];
+function burst(el, big = false) {
   if (calm() || !el) return;
   const r = el.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-  const kinds = ["leaf", "petal", "sun"];
-  for (let n = 0; n < 18; n++) {
+  const count = big ? 90 : 46, fall = window.innerHeight - cy + 40;
+  for (let n = 0; n < count; n++) {
     const p = document.createElement("span");
-    p.className = "burst " + kinds[n % 3];
+    const shape = n % 7 === 0 ? "petal" : n % 3 === 0 ? "dot" : "paper";
+    p.className = "burst " + shape;
+    if (shape !== "petal") p.style.background = CONFETTI[n % CONFETTI.length];
     document.body.appendChild(p);
-    const ang = Math.random() * Math.PI * 2, dist = 60 + Math.random() * 90, rot = Math.random() * 540 - 270;
-    const dx = Math.cos(ang) * dist, dy = Math.sin(ang) * dist - 40;
+    const ang = -Math.PI / 2 + (Math.random() - 0.5) * Math.PI * 1.3; // mostly upward
+    const speed = (big ? 240 : 170) + Math.random() * 160;
+    const dx = Math.cos(ang) * speed, up = Math.sin(ang) * speed;
+    const spin = Math.random() * 900 - 450, flip = 0.2 + Math.random() * 0.8;
+    const dur = 1300 + Math.random() * 900;
     p.animate(
       [
-        { transform: `translate(${cx}px,${cy}px) rotate(0deg) scale(1)`, opacity: 1 },
-        { transform: `translate(${cx + dx}px,${cy + dy + 60}px) rotate(${rot}deg) scale(.6)`, opacity: 0 },
+        { transform: `translate(${cx}px,${cy}px) rotate(0deg) scaleY(1)`, opacity: 1 },
+        { transform: `translate(${cx + dx * 0.7}px,${cy + up}px) rotate(${spin * 0.4}deg) scaleY(${flip})`, opacity: 1, offset: 0.3 },
+        { transform: `translate(${cx + dx}px,${cy + up + fall * 0.6}px) rotate(${spin}deg) scaleY(${-flip})`, opacity: 0.9, offset: 0.75 },
+        { transform: `translate(${cx + dx * 1.1}px,${cy + up + fall}px) rotate(${spin * 1.3}deg) scaleY(1)`, opacity: 0 },
       ],
-      { duration: 700 + Math.random() * 400, easing: "cubic-bezier(.15,.7,.3,1)" }
+      { duration: dur, easing: "cubic-bezier(.2,.6,.4,1)" }
     ).onfinish = () => p.remove();
   }
   if (navigator.vibrate) navigator.vibrate(12);
 }
 
-function daysLeft() {
-  if (!SET.testDate) return null;
-  const t = new Date(SET.testDate + "T00:00:00"), now = new Date();
+function daysLeft(set = SET) {
+  if (!set.testDate) return null;
+  const t = new Date(set.testDate + "T00:00:00"), now = new Date();
   now.setHours(0, 0, 0, 0);
   return Math.round((t - now) / DAY);
 }
@@ -103,10 +123,22 @@ function lastCheck() {
   return `<p class="small muted">Last readiness check: <b>${c.right} of ${c.total}</b> on ${when}</p>`;
 }
 
+const countdown = (d) => d === null || d < 0 ? "" : `<span class="chip">${d === 0 ? "Test day. You've got this." : d === 1 ? "1 day to your test" : d + " days to your test"}</span>`;
+const shortTitle = (set) => set.title.split(": ").slice(-1)[0];
+const hasDefinitions = () => GH.allItems(SET).some((i) => i.type === "define");
+
 /* ---------- screens ---------- */
+function vPick() {
+  const now = Date.now();
+  return `<div class="top"><span class="logo">${LOGO}Greenhouse</span></div>
+  <section class="hero rise"><h1>What are you studying for?</h1><p class="muted">Pick your test. Your progress stays on this device.</p></section>
+  ${SETS.map((x) => `<button class="card pickcard" data-set="${esc(x.id)}"><div>${countdown(daysLeft(x))}</div><h2>${esc(x.title)}</h2><p class="muted small">${esc(x.subtitle)}</p>
+    <p class="small"><b>${GH.confidence(x, P, now).pct}%</b> <span class="muted">test confidence</span></p></button>`).join("")}`;
+}
+
 function vHome() {
   const d = daysLeft(), now = Date.now();
-  const chip = d === null || d < 0 ? "" : `<span class="chip">${d === 0 ? "Test day. You've got this." : d === 1 ? "1 day to your test" : d + " days to your test"}</span>`;
+  const chip = countdown(d);
   const conf = GH.confidence(SET, P, now);
   const today = GH.buildToday(SET, P, now);
   const due = today.filter((i) => SP().items[i.id]).length, fresh = today.length - due;
@@ -114,17 +146,59 @@ function vHome() {
   const confLine = conf.seen === 0
     ? "Start today's round and watch this grow."
     : `If the test were today, you'd likely get about <b>${conf.pct}%</b> of these questions right.`;
-  return `<div class="top"><span class="logo">${LOGO}Greenhouse</span><button class="link small" data-act="progress">Progress</button></div>
+  return `<div class="top"><span class="logo">${LOGO}Greenhouse</span><span class="row" style="gap:16px">${SETS.length > 1 ? `<button class="link small" data-act="pick">Switch test</button>` : ""}<button class="link small" data-act="progress">Progress</button></span></div>
   ${saveWarning()}
-  <section class="hero rise"><div>${chip}</div><h1>${esc(SET.title.replace(/^AP World History: /, ""))}</h1><p class="muted">${esc(SET.subtitle)}</p></section>
+  <section class="hero rise"><div>${chip}</div><h1>${esc(shortTitle(SET))}</h1><p class="muted">${esc(SET.subtitle)}</p></section>
   <section class="card conf"><div class="confrow">${ring(conf.pct, 112)}<div style="display:grid;gap:6px;min-width:0"><h2>Test confidence</h2><p class="small">${confLine}</p></div></div>
     <p class="small muted">${conf.solid} of ${conf.recallTotal} typed answers solid · ${conf.seen} of ${conf.total} questions seen</p>${lastCheck()}</section>
   ${today.length
     ? `<section class="card"><h2>Today's round</h2><p class="muted small">About ${GH.minutesFor(today)} minutes: ${mix}. Misses come back at the end.</p><button class="btn" data-act="today">Start today's round</button></section>`
     : `<section class="card"><h2>All watered for today.</h2><p class="muted small">Nothing is due right now. Spacing it out is what makes it stick, so check back tomorrow.</p><button class="btn alt" data-act="practice">Practice anyway</button></section>`}
+  ${hasDefinitions() ? `<section class="card"><h2>Matching game</h2><p class="muted small">Match five terms to their definitions, like the matching part of your test. Tap a term, then its definition.</p><button class="btn alt" data-act="match">Play matching</button></section>` : ""}
   <section class="card"><h2>Readiness check</h2><p class="muted small">${CHECK_SIZE} questions across every topic, with no hints. At the end you get a score for each topic, so you know where you stand.</p><button class="btn alt" data-act="check">Take the check</button></section>
   <section style="display:grid;gap:12px"><h3>Practice one topic</h3><div class="chips">${SET.topics.map((t) => `<button class="topicchip" data-topic="${esc(t.id)}">${esc(t.name)}</button>`).join("")}</div></section>
-  <p class="small muted">Every answer links to its source. If something looks wrong, tap <b>Looks wrong</b> and send it to Dad.</p>`;
+  <p class="small muted">Every answer shows its source. If something looks wrong, tap <b>Looks wrong</b> and send the text.</p>`;
+}
+
+/* Matching game: tap a term, then its definition. Right pairs pop with confetti. */
+function startMatch() {
+  const items = GH.buildMatch(SET, 5);
+  s = { view: "match", match: { items, defs: GH.shuffle(items), picked: null, done: {}, missed: {}, wrong: null, before: GH.confidence(SET, P, Date.now()).pct } };
+  render();
+}
+
+function vMatch() {
+  const m = s.match, left = m.items.filter((i) => !m.done[i.id]).length;
+  if (!left) {
+    const right = m.items.filter((i) => !m.missed[i.id]).length;
+    return `<div class="top"><span class="logo">${LOGO}Greenhouse</span></div>
+    <section class="hero rise" style="text-align:center;justify-items:center"><h1 id="donehead">${right === m.items.length ? "Perfect match!" : "All matched."}</h1><p class="muted">${right} of ${m.items.length} matched on the first try.</p></section>
+    ${confChange(m.before)}
+    <button class="btn" data-act="match">Play again</button><button class="btn alt" data-act="home">Back to the greenhouse</button>`;
+  }
+  return `<div class="qtop"><span class="topicname" style="flex:1">Matching · ${m.items.length - left} of ${m.items.length} done</span><button class="link small" data-act="stop">Stop</button></div>
+  <section class="rise" style="display:grid;gap:18px"><h2>Tap a term, then its definition.</h2>
+    <div class="chips">${m.items.map((i) => `<button class="topicchip termchip${m.picked === i.id ? " on" : ""}${m.done[i.id] ? " gone" : ""}" data-term="${esc(i.id)}"${m.done[i.id] ? " disabled" : ""} id="t-${esc(i.id)}">${esc(i.q)}</button>`).join("")}</div>
+    <div class="options">${m.defs.map((i) => `<button class="option defopt${m.done[i.id] ? " right" : ""}${m.wrong === i.id ? " shake wrong" : ""}" data-def="${esc(i.id)}"${m.done[i.id] ? " disabled" : ""} id="d-${esc(i.id)}"><span>${esc(i.answer)}</span></button>`).join("")}</div>
+  </section>`;
+}
+
+function pickDefinition(defId) {
+  const m = s.match;
+  if (!m.picked) { m.wrong = null; render(); return; }
+  const term = m.picked, ok = term === defId, mcItem = GH.allItems(SET).find((i) => i.id === "match-" + term.replace(/^def-/, ""));
+  if (!ok) m.missed[term] = true;
+  if (ok) {
+    m.done[term] = true;
+    m.picked = null;
+    m.wrong = null;
+    if (mcItem) recordAnswer(mcItem, !m.missed[term]);
+  } else m.wrong = defId;
+  render();
+  if (ok) {
+    burst($("d-" + defId));
+    if (m.items.every((i) => m.done[i.id]) && m.items.every((i) => !m.missed[i.id])) setTimeout(() => burst($("donehead"), true), 300);
+  }
 }
 
 function vProgress() {
@@ -148,10 +222,12 @@ function vQuiz() {
   const counter = q.mode === "check" ? `Question ${Math.min(q.i + 1, q.base.length)} of ${q.base.length}` : q.i >= q.base.length ? "Second try" : "";
   let body = "";
   if (it.type === "mc") body = mcBody(it, q);
+  else if (it.type === "define") body = defineBody(it, q);
   else body = shortBody(it, q);
   return `<div class="qtop">${garden()}<button class="link small" data-act="stop">Stop</button></div>
   <section class="rise" style="display:grid;gap:18px" id="qcard">
-    <div style="display:grid;gap:8px"><span class="topicname">${esc(it.topicName)}${counter ? " · " + counter : ""}</span><h2>${esc(it.q)}</h2></div>
+    <div style="display:grid;gap:8px"><span class="topicname">${esc(it.topicName)}${counter ? " · " + counter : ""}</span><h2>${it.type === "define" ? `Define: <span class="term">${esc(it.q)}</span>` : esc(it.q)}</h2>
+    ${it.stimulus ? `<blockquote class="stimulus">${esc(it.stimulus)}</blockquote>` : ""}</div>
     ${body}
   </section>`;
 }
@@ -195,14 +271,34 @@ function shortBody(it, q) {
   return `${typed && q.result === false ? `<p class="small muted">You wrote: ${esc(typed)}</p>` : ""}<div class="card" style="gap:6px"><p class="small muted">Answer</p><p style="font-size:20px;font-weight:700" id="${q.result ? "rightopt" : "wrongopt"}">${esc(it.answer)}</p></div>${feedback(it, q)}`;
 }
 
+/* Word-for-word definitions: type it, then see exactly which words were off. */
+function diffView(r) {
+  return `<p class="diff">${r.tokens.map((t) => t.s === "ok" ? `<span>${esc(t.w)}</span>` : t.s === "typo" ? `<span class="typo" title="You typed: ${esc(t.typed)}">${esc(t.w)}</span>` : t.s === "missing" ? `<ins>${esc(t.w)}</ins>` : `<del>${esc(t.w)}</del>`).join(" ")}</p>`;
+}
+
+function defineBody(it, q) {
+  const box = (hint) => `<label class="small muted" for="defA">${hint}</label><textarea id="defA" rows="3" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="${q.mode === "check" ? "next" : "done"}">${esc(q.answers[it.id] || "")}</textarea>`;
+  if (q.mode === "check") return `<form id="defForm" style="display:grid;gap:12px">${box("Type the definition, word for word")}<button class="btn">${q.i === q.queue.length - 1 ? "Finish" : "Next"}</button></form>`;
+  if (q.result === null) return `<form id="defForm" style="display:grid;gap:12px">${box("Type the definition, word for word")}<div class="row"><button class="btn">Check</button><button type="button" class="btn alt" data-act="dunno">No idea</button></div></form>`;
+  const r = GH.checkDefinition(q.answers[it.id], it.answer, it.q);
+  const note = r.pass ? (r.tokens.some((t) => t.s === "typo") ? "Word for word. Underlined words had a small typo." : "Word for word.")
+    : q.answers[it.id] ? `${r.off} ${r.off === 1 ? "word" : "words"} off. Yellow words are missing, crossed-out words don't belong.` : "";
+  return `<div class="card" style="gap:8px" id="${q.result ? "rightopt" : "wrongopt"}">${q.answers[it.id] ? `<p class="small muted">Your answer, checked</p>${diffView(r)}<p class="small muted">${note}</p>` : ""}
+    <p class="small muted">Exact wording</p><p style="font-size:18px;font-weight:600">${esc(it.answer)}</p></div>${feedback(it, q)}`;
+}
+
 function feedback(it, q) {
   const yes = q.result;
   const words = yes ? (q.combo >= 3 ? `${q.combo} in a row!` : q.cheer) : "Not this time.";
   const later = !yes && q.i < q.base.length ? " It'll come back at the end of this round." : "";
   return `<div class="feedback ${yes ? "yes" : "no"} rise" role="status"><p class="verdict">${esc(words)}</p>
-    <p>${esc(it.why)}${esc(later)}</p>
-    <div class="source"><a class="link" href="${esc(it.src.url)}" target="_blank" rel="noopener">Source: ${esc(it.src.label)}</a>${flagLink(it)}</div>
+    ${it.why || later ? `<p>${esc(it.why || "")}${esc(later)}</p>` : ""}
+    <div class="source">${sourceLink(it)}${flagLink(it)}</div>
     <button class="btn" data-act="next" id="nextBtn">${q.i === q.queue.length - 1 ? "Finish" : "Next"}</button></div>`;
+}
+
+function sourceLink(it, cls = "link") {
+  return it.src.url ? `<a class="${cls}" href="${esc(it.src.url)}" target="_blank" rel="noopener">Source: ${esc(it.src.label)}</a>` : `<span class="small muted">Source: ${esc(it.src.label)}</span>`;
 }
 
 function flagLink(it) {
@@ -250,9 +346,9 @@ function vCheckDone() {
   ${confChange(q.before)}
   ${weakest && weakest.right < weakest.total ? `<button class="btn" data-act="topic:${esc(weakest.id)}">Practice ${esc(weakest.name)}</button>` : ""}
   ${missed.length ? `<section class="card"><h3>What you missed</h3>${missed.map((it) => `<div class="missed"><span class="topicname">${esc(it.topicName)}</span><p><b>${esc(it.q)}</b></p>
-    ${it.type === "mc" && q.answers[it.id] !== undefined ? `<p class="small"><span class="muted">You picked:</span> ${esc(it.options[q.answers[it.id]])}</p>` : it.type === "short" ? `<p class="small"><span class="muted">You wrote:</span> ${esc(q.answers[it.id] || "(nothing)")}</p>` : ""}
-    <p class="small"><span class="muted">Answer:</span> <b>${esc(GH.answerText(it))}</b></p><p class="small">${esc(it.why)}</p>
-    <div class="source"><a class="link small" href="${esc(it.src.url)}" target="_blank" rel="noopener">Source: ${esc(it.src.label)}</a>${flagLink(it)}</div></div>`).join("")}</section>` : ""}
+    ${it.type === "mc" && q.answers[it.id] !== undefined ? `<p class="small"><span class="muted">You picked:</span> ${esc(it.options[q.answers[it.id]])}</p>` : it.type === "define" && q.answers[it.id] ? diffView(GH.checkDefinition(q.answers[it.id], it.answer, it.q)) : it.type !== "mc" ? `<p class="small"><span class="muted">You wrote:</span> ${esc(q.answers[it.id] || "(nothing)")}</p>` : ""}
+    <p class="small"><span class="muted">${it.type === "define" ? "Exact wording" : "Answer"}:</span> <b>${esc(GH.answerText(it))}</b></p>${it.why ? `<p class="small">${esc(it.why)}</p>` : ""}
+    <div class="source">${sourceLink(it, "link small")}${flagLink(it)}</div></div>`).join("")}</section>` : ""}
   <button class="btn alt" data-act="home">Home</button>`;
 }
 
@@ -323,6 +419,7 @@ function finishCheck() {
   q.selfQueue = [];
   q.base.forEach((it) => {
     if (it.type === "mc") q.final[it.id] = q.answers[it.id] === it.answer;
+    else if (it.type === "define") q.final[it.id] = GH.checkDefinition(q.answers[it.id], it.answer, it.q).pass;
     else if (GH.matches(q.answers[it.id], it.accept)) q.final[it.id] = true;
     else if (!(q.answers[it.id] || "").trim()) q.final[it.id] = false;
     else q.selfQueue.push(it);
@@ -355,7 +452,8 @@ function showScore() {
 /* ---------- render and events ---------- */
 function render() {
   const app = $("app");
-  const views = { home: vHome, progress: vProgress, quiz: vQuiz, practiceDone: vPracticeDone, selfCheck: vSelfCheck, checkDone: vCheckDone };
+  if (!SET && s.view !== "pick") s = { view: "pick" };
+  const views = { pick: vPick, match: vMatch, home: vHome, progress: vProgress, quiz: vQuiz, practiceDone: vPracticeDone, selfCheck: vSelfCheck, checkDone: vCheckDone };
   app.innerHTML = views[s.view]();
   bind();
   // Fill rings and topic bars from zero, so changes are visible.
@@ -373,6 +471,8 @@ function act(a) {
   else if (a === "today") startQuiz("today");
   else if (a === "check") startQuiz("check");
   else if (a === "progress") { s = { view: "progress" }; render(); }
+  else if (a === "pick") { s = { view: "pick" }; render(); }
+  else if (a === "match") startMatch();
   else if (a === "copycode") {
     const code = GH.exportCode(P), msg = $("codemsg");
     const done = () => (msg.textContent = "Copied. Paste it into Greenhouse on your other device.");
@@ -401,6 +501,9 @@ function act(a) {
 
 function bind() {
   document.querySelectorAll("[data-act]").forEach((b) => (b.onclick = () => act(b.dataset.act)));
+  document.querySelectorAll("[data-set]").forEach((b) => (b.onclick = () => chooseSet(b.dataset.set)));
+  document.querySelectorAll("[data-term]").forEach((b) => (b.onclick = () => { s.match.picked = b.dataset.term; s.match.wrong = null; render(); }));
+  document.querySelectorAll("[data-def]").forEach((b) => (b.onclick = () => pickDefinition(b.dataset.def)));
   document.querySelectorAll("[data-topic]").forEach((b) => (b.onclick = () => startQuiz("practice", b.dataset.topic)));
   document.querySelectorAll("[data-pick]").forEach((b) => (b.onclick = () => {
     const q = s.quiz, it = q.queue[q.i], k = +b.dataset.pick;
@@ -411,6 +514,19 @@ function bind() {
   document.querySelectorAll("[data-self]").forEach((b) => (b.onclick = () => grade(b.dataset.self === "1")));
   document.querySelectorAll("[data-judge]").forEach((b) => (b.onclick = () => { s.quiz.self[b.dataset.judge] = b.dataset.v === "1"; render(); }));
   document.querySelectorAll("[data-flag]").forEach((a) => a.addEventListener("click", () => setTimeout(() => (a.textContent = "Thanks. Send that text to Dad."), 300)));
+  const df = $("defForm");
+  if (df) {
+    const ta = $("defA");
+    ta.onkeydown = (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); df.requestSubmit(); } };
+    df.onsubmit = (e) => {
+      e.preventDefault();
+      const q = s.quiz, it = q.queue[q.i], v = ta.value.trim();
+      q.answers[it.id] = v;
+      if (q.mode === "check") { q.first[it.id] = true; next(); return; }
+      if (!v) return;
+      grade(GH.checkDefinition(v, it.answer, it.q).pass);
+    };
+  }
   const sf = $("shortForm");
   if (sf) sf.onsubmit = (e) => {
     e.preventDefault();

@@ -37,8 +37,9 @@ export function checkSet(set) {
       if (ids.has(i.id)) bad(at, "duplicate id");
       ids.add(i.id);
       if (!text(i.q)) bad(at, "missing question");
-      if (!text(i.why)) bad(at, "missing explanation (why)");
-      if (!i.src || !text(i.src.label) || !/^https:\/\//.test(i.src.url || "")) bad(at, "needs a source with a label and an https link");
+      if (!text(i.why) && i.type !== "define") bad(at, "missing explanation (why)");
+      // A source needs a label. A link is optional (class notes have none), but must be https if given.
+      if (!i.src || !text(i.src.label) || (i.src.url !== undefined && !/^https:\/\//.test(i.src.url))) bad(at, "needs a source with a label (and an https link, if any)");
       if (i.type === "mc") {
         mc++;
         const o = i.options || [];
@@ -50,6 +51,8 @@ export function checkSet(set) {
         if (!text(i.answer)) bad(at, "short answer needs an answer");
         if (!Array.isArray(i.accept) || !i.accept.length) bad(at, "short answer needs accepted answers");
         else if (i.accept.some((a) => !normalize(a))) bad(at, "an accepted answer is empty after cleanup");
+      } else if (i.type === "define") {
+        if (!text(i.answer) || normalize(i.answer).split(" ").length < 2) bad(at, "a definition needs its exact wording");
       } else bad(at, `unknown type "${i.type}"`);
       const all = JSON.stringify(i);
       if (all.includes("—")) bad(at, "contains an em dash");
@@ -62,7 +65,7 @@ export function checkSet(set) {
 
 async function checkLinks(set) {
   const problems = [];
-  const urls = [...new Set(set.topics.flatMap((t) => t.items.map((i) => i.src.url)))];
+  const urls = [...new Set(set.topics.flatMap((t) => t.items.map((i) => i.src.url)).filter(Boolean))];
   for (const url of urls) {
     const m = url.match(/^https:\/\/en\.wikipedia\.org\/wiki\/(.+)$/);
     if (!m) { problems.push(`${url}: not a Wikipedia link, check it by hand`); continue; }

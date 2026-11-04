@@ -114,3 +114,41 @@ test("the format check catches a missing source and a biased answer", () => {
   assert.ok(r.problems.some((p) => p.includes("source")));
   assert.ok(r.problems.some((p) => p.includes("longest")));
 });
+
+test("definitions: word for word passes, a missing or changed word fails, and the diff says which", () => {
+  const d = "refers to a structure being closer to the head or higher than another structure in the body.";
+  assert.ok(GH.checkDefinition("Refers to a structure being closer to the head or higher than another structure in the body", d).pass);
+  const missing = GH.checkDefinition("refers to a structure closer to the head or higher than another structure in the body", d);
+  assert.ok(!missing.pass);
+  assert.deepEqual(missing.tokens.filter((t) => t.s === "missing").map((t) => t.w), ["being"]);
+  const swapped = GH.checkDefinition("refers to a structure being closer to the head or higher than other structure in the body", d);
+  assert.ok(!swapped.pass && swapped.off === 2);
+  assert.ok(!GH.checkDefinition("", d).pass);
+});
+
+test("definitions: small typos in long words are fine, a slash counts as a space", () => {
+  assert.ok(GH.checkDefinition("refers to a structre being closer to the head", "refers to a structure being closer to the head").pass);
+  assert.ok(GH.checkDefinition("toward the front belly", "toward the front/belly.").pass);
+  assert.ok(!GH.checkDefinition("toward the bak", "toward the back.").pass, "no typos allowed in short words");
+});
+
+test("definitions: starting with the term, or 'is defined as', is accepted", () => {
+  const d = "when the body is divided into EQUAL right and left portions.";
+  assert.ok(GH.checkDefinition("Midsagittal plane is when the body is divided into equal right and left portions", d, "Midsagittal plane").pass);
+  assert.ok(GH.checkDefinition("Anatomical position is defined as standing erect, with the palms and feet facing forward",
+    "standing erect, with the palms and feet facing forward", "Anatomical position").pass);
+  assert.ok(!GH.checkDefinition("the body is divided into equal halves", d, "Midsagittal plane").pass);
+});
+
+test("every set's word-for-word definitions pass when typed exactly", () => {
+  for (const set of loadSets()) for (const i of GH.allItems(set))
+    if (i.type === "define") assert.ok(GH.checkDefinition(i.answer, i.answer, i.q).pass, i.id);
+});
+
+test("matching board: five different definition items", () => {
+  const med = loadSets().find((x) => x.id === "sm-medterm");
+  const b = GH.buildMatch(med, 5, seeded(4));
+  assert.equal(b.length, 5);
+  assert.ok(b.every((i) => i.type === "define"));
+  assert.equal(new Set(b.map((i) => i.id)).size, 5);
+});

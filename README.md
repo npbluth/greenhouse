@@ -55,6 +55,14 @@ Each set file adds one set: `id`, `title`, `subtitle`, optional `testDate` (`202
 - Multiple choice: `options` (4) and `answer` (the index of the right one; options are shuffled on screen)
 - Short answer: `answer` (shown to the student) and `accept` (answers that count; one typo is allowed
   in longer words, and the student compares by hand when nothing matches)
+- Word-for-word definition: `type: "define"`, `q` is the term, `answer` is the exact wording. Checked
+  word by word (one typo allowed in words of 5+ letters; starting with the term is fine). Counts as
+  typed recall. Sets with definitions also get the matching game.
+- Multiple choice can show a passage above the question with `stimulus`.
+- `src.url` is optional for class notes; `src.label` is required.
+
+Each set file is added to `index.html` with its own script tag. With more than one set, the app
+opens on a "What are you studying for?" picker and remembers the choice on that device.
 
 Rules: write questions fresh, never copy the textbook or teacher materials, and run a separate
 fact-check pass against the sources before publishing. No names, photos or school details in any set.

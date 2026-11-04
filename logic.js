@@ -46,6 +46,38 @@
     });
   }
 
+  /* Word-for-word definitions. Compares word by word (punctuation and capitals ignored,
+     one typo allowed in words of 5+ letters) and returns each word marked
+     ok / typo / missing / extra, so the screen can show exactly what was off. */
+  function words(s) {
+    return normalize(String(s ?? "").replace(/[\/\-–]/g, " ")).split(" ").filter(Boolean);
+  }
+  function sameWord(x, y) { return x === y || (y.length >= 5 && editDistance(x, y) <= 1); }
+  function checkDefinition(typed, definition, term = "") {
+    const a = words(definition);
+    let b = words(typed);
+    // Starting with the term itself ("Midsagittal plane is when...") is fine.
+    const t = words(term);
+    if (t.length && t.every((w, k) => b[k] && sameWord(b[k], w))) b = b.slice(t.length);
+    for (const lead of [["is", "defined", "as"], ["is"], ["means"]])
+      if (a[0] !== lead[0] && lead.every((w, k) => b[k] === w)) { b = b.slice(lead.length); break; }
+    const L = Array.from({ length: a.length + 1 }, () => new Array(b.length + 1).fill(0));
+    for (let i = a.length - 1; i >= 0; i--)
+      for (let j = b.length - 1; j >= 0; j--)
+        L[i][j] = sameWord(b[j], a[i]) ? L[i + 1][j + 1] + 1 : Math.max(L[i + 1][j], L[i][j + 1]);
+    const out = [];
+    let i = 0, j = 0;
+    while (i < a.length || j < b.length) {
+      if (i < a.length && j < b.length && sameWord(b[j], a[i])) { out.push({ w: a[i], s: b[j] === a[i] ? "ok" : "typo", typed: b[j] }); i++; j++; }
+      else if (j < b.length && (i >= a.length || L[i][j + 1] >= L[i + 1][j])) { out.push({ w: b[j], s: "extra" }); j++; }
+      else { out.push({ w: a[i], s: "missing" }); i++; }
+    }
+    const off = out.filter((t) => t.s === "missing" || t.s === "extra").length;
+    return { pass: b.length > 0 && off === 0, off, tokens: out };
+  }
+
+  const isRecall = (type) => type === "short" || type === "define";
+
   /* Interleave topics so no two neighbours share a topic when it can be avoided. */
   function interleave(items) {
     const groups = {};
@@ -91,13 +123,18 @@
 
   /* Text-message link for "Looks wrong". No phone number: she picks the recipient. */
   function flagLink(set, item) {
-    const q = item.q || item.front || "";
+    const q = (item.q || "") + (item.stimulus ? " " + item.stimulus : "");
     const body = `Greenhouse "Looks wrong" report\nSet: ${set.title}\nQuestion (${item.id}): ${q}\nApp's answer: ${answerText(item)}\nWhat looks wrong: `;
     return "sms:?&body=" + encodeURIComponent(body);
   }
 
   function answerText(item) {
     return item.type === "mc" ? item.options[item.answer] : item.answer;
+  }
+
+  /* Matching board: a handful of define items, each paired with its definition. */
+  function buildMatch(set, size = 5, rand = Math.random) {
+    return shuffle(allItems(set).filter((i) => i.type === "define"), rand).slice(0, size);
   }
 
   /* ---------- Phase 2: saved progress and spaced review ----------
@@ -136,7 +173,7 @@
     e.reps++;
     e.last = pass;
     if (!pass) e.days = [];
-    else if (item.type === "short" && !e.days.includes(dayKey(now))) e.days.push(dayKey(now));
+    else if (isRecall(item.type) && !e.days.includes(dayKey(now))) e.days.push(dayKey(now));
     sp.items[item.id] = e;
     return e;
   }
@@ -159,7 +196,7 @@
 
   /* Solid: typed recall on two different days, expected to hold a week, and not faded since. */
   function isSolid(item, entry, now) {
-    return item.type === "short" && !!entry && !!entry.card && entry.days.length >= 2 &&
+    return isRecall(item.type) && !!entry && !!entry.card && entry.days.length >= 2 &&
       entry.card.stability >= SOLID_DAYS && recall(entry, now) >= 0.8;
   }
 
@@ -180,7 +217,7 @@
     const sp = setProgress(progress, set.id);
     return set.topics.map((t) => {
       const seen = t.items.filter((i) => sp.items[i.id]);
-      const recallItems = t.items.filter((i) => i.type === "short");
+      const recallItems = t.items.filter((i) => isRecall(i.type));
       const score = t.items.reduce((a, i) => a + known(sp.items[i.id], now), 0) / t.items.length;
       const faded = seen.filter((i) => dueAt(sp.items[i.id], set) <= now).length; // past their review date
       return {
@@ -196,7 +233,7 @@
   function confidence(set, progress, now) {
     const sp = setProgress(progress, set.id), all = allItems(set);
     const sum = all.reduce((a, i) => a + known(sp.items[i.id], now), 0);
-    const recallItems = all.filter((i) => i.type === "short");
+    const recallItems = all.filter((i) => isRecall(i.type));
     return {
       pct: Math.round((sum / all.length) * 100),
       seen: all.filter((i) => sp.items[i.id]).length,
@@ -207,7 +244,7 @@
   }
 
   function minutesFor(items) {
-    return Math.max(2, Math.round(items.reduce((a, i) => a + (i.type === "mc" ? 0.5 : 0.75), 0)));
+    return Math.max(2, Math.round(items.reduce((a, i) => a + (i.type === "mc" ? 0.5 : i.type === "define" ? 1.25 : 0.75), 0)));
   }
 
   /* Backup code for moving progress to another device. */
@@ -225,7 +262,7 @@
   }
 
   const api = { shuffle, normalize, editDistance, matches, interleave, allItems, buildPractice, buildCheck, scoreCheck, flagLink, answerText,
-    dayKey, emptyProgress, setProgress, record, recall, dueAt, isSolid, buildToday, topicStats, confidence, minutesFor, exportCode, importCode };
+    checkDefinition, isRecall, buildMatch, dayKey, emptyProgress, setProgress, record, recall, dueAt, isSolid, buildToday, topicStats, confidence, minutesFor, exportCode, importCode };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   root.GH = Object.assign(root.GH || {}, api);
 })(typeof globalThis !== "undefined" ? globalThis : this);
