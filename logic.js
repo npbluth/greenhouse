@@ -108,8 +108,11 @@
 
   /* Readiness check: spread evenly across topics, then mixed. */
   function buildCheck(set, size = 20, rand = Math.random) {
-    const byTopic = set.topics.map((t) => shuffle(t.items.map((i) => ({ ...i, topic: t.id, topicName: t.name })), rand));
-    const picked = [];
+    // A set can ask for part of the check from one topic (e.g. half test-style questions).
+    const focus = set.checkFocus && set.topics.find((t) => t.id === set.checkFocus.topic);
+    const take = (t) => shuffle(t.items.map((i) => ({ ...i, topic: t.id, topicName: t.name })), rand);
+    const picked = focus ? take(focus).slice(0, Math.round(size * set.checkFocus.share)) : [];
+    const byTopic = set.topics.filter((t) => t !== focus).map(take);
     while (picked.length < size && byTopic.some((q) => q.length))
       byTopic.forEach((q) => { if (q.length && picked.length < size) picked.push(q.shift()); });
     return interleave(shuffle(picked, rand));

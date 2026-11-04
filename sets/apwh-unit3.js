@@ -2,13 +2,596 @@
    Built straight from the class worksheets (WHAP Unit Three "Land-Based Empires"): every key term
    becomes a matching question and every printed worksheet question becomes a short answer, with
    answers checked against the cited sources. Items marked unsure could not be checked against the
-   AMSCO textbook. Format: see README.md. Check it with: node tools/check-set.mjs */
+   AMSCO textbook. The first topic, Test-style practice, is original AP-style questions
+   covering the ideas in her class review; half of each readiness check comes from it. Format: see README.md. Check it with: node tools/check-set.mjs */
 (globalThis.GH_SETS = globalThis.GH_SETS || []).push({
   "id": "apwh-unit3",
   "title": "AP World History: Land-Based Empires",
   "subtitle": "AP World History, Unit 3.1 and 3.2 worksheets",
   "testDate": "2026-11-14",
   "topics": [
+    {
+      "id": "3x-test",
+      "name": "Test-style practice",
+      "items": [
+        {
+          "id": "3x-panipat-guns",
+          "type": "mc",
+          "stimulus": "In 1526, Babur, a ruler from Central Asia, led a smaller army against the Delhi Sultan Ibrahim Lodi at Panipat in northern India. Babur's soldiers used matchlock guns and field cannon placed behind carts and barriers. Lodi's army had far more soldiers and many war elephants. Babur won and went on to found the Mughal Empire.",
+          "q": "Which of the following best explains Babur's victory at Panipat?",
+          "options": [
+            "Babur's larger force of war elephants broke through the Sultan's lines before his cavalry could form up.",
+            "Hindu Rajput princes switched sides during the battle, leaving the Sultan without most of his soldiers.",
+            "Portuguese ships on India's west coast brought cannon and gunners to Babur's camp before the battle.",
+            "Guns and cannon used in a planned defense let a smaller force beat a larger army."
+          ],
+          "answer": 3,
+          "why": "Babur's guns and cannon, protected by carts, made up for having fewer men. The elephant choice is wrong because the elephants belonged to Lodi, whose army was the larger one.",
+          "src": {
+            "label": "Wikipedia: Battle of Panipat (1526)",
+            "url": "https://en.wikipedia.org/wiki/Battle_of_Panipat_(1526)"
+          }
+        },
+        {
+          "id": "3x-gunpowder-rivalry",
+          "type": "mc",
+          "stimulus": "Cannons and muskets were costly. Only rulers who could tax large territories could pay for them, train gunners, and keep them supplied. In the 1500s the Ottoman, Safavid, and Mughal states all built their armies around these weapons.",
+          "q": "What was the most common effect of these weapons on how neighboring empires dealt with one another?",
+          "options": [
+            "Empires that shared Islam formed a lasting alliance and agreed to stop fighting over their borders.",
+            "Local nobles bought their own cannon and broke the empires into many small, independent kingdoms.",
+            "European kings controlled the supply of weapons and decided which Asian empires could go to war.",
+            "Rivalries and wars between neighbors grew as their armies became stronger."
+          ],
+          "answer": 3,
+          "why": "Stronger armies tempted rulers to expand, so wars between neighbors, like the Ottomans against the Safavids, grew. The alliance choice is wrong because the Muslim empires fought each other often.",
+          "src": {
+            "label": "Wikipedia: Gunpowder empires",
+            "url": "https://en.wikipedia.org/wiki/Gunpowder_empires"
+          }
+        },
+        {
+          "id": "3x-chaldiran-effect",
+          "type": "mc",
+          "stimulus": "In 1514, at the Battle of Chaldiran, the Ottoman army of Sultan Selim I faced the Safavid army of Shah Ismail. The Ottomans used many musketeers and cannon. The Safavid army was mostly mounted warriors with swords and bows. The Ottomans won.",
+          "q": "This battle best illustrates which major reason for Ottoman expansion in the 1400s and 1500s?",
+          "options": [
+            "Ottoman cannon and muskets gave their armies an edge over rivals who relied on cavalry.",
+            "A shared Shia faith with the Safavids let Ottoman armies march freely through Persian lands.",
+            "Ottoman soldiers were mostly steppe archers on horseback.",
+            "European kings sent money and ships to help the sultan beat the Safavids."
+          ],
+          "answer": 0,
+          "why": "Ottoman artillery and muskets beat Safavid cavalry here, and the same edge helped them take Constantinople in 1453 and Egypt in 1517. The Shia choice is wrong because the Ottomans were Sunni and the Safavids' enemies.",
+          "src": {
+            "label": "Wikipedia: Battle of Chaldiran",
+            "url": "https://en.wikipedia.org/wiki/Battle_of_Chaldiran"
+          }
+        },
+        {
+          "id": "3x-steppe-shift",
+          "type": "mc",
+          "stimulus": "For centuries, mounted archers from the Central Asian steppe often conquered farming societies. By the 1600s, large settled empires could defend their borders against nomads and even push into the steppe.",
+          "q": "Which of the following best explains this change?",
+          "options": [
+            "Nomadic peoples settled down as farmers in large numbers and joined the empires by choice.",
+            "Settled states could pay for and supply gunpowder weapons, which cut the military edge of mounted archers.",
+            "A colder climate killed off the steppe horse herds, so nomads could no longer gather large armies.",
+            "Nomadic leaders became Buddhist or Christian and gave up raiding."
+          ],
+          "answer": 1,
+          "why": "Guns and cannon needed money, workshops, and steady supplies, which big farming states had and nomads lacked. The climate choice is wrong because nothing in the passage points to a loss of horses.",
+          "src": {
+            "label": "Wikipedia: Gunpowder empires",
+            "url": "https://en.wikipedia.org/wiki/Gunpowder_empires"
+          }
+        },
+        {
+          "id": "3x-nerchinsk-expansion",
+          "type": "mc",
+          "stimulus": "In 1689, Russia and Qing China signed the Treaty of Nerchinsk to set part of their border in northeast Asia. Both empires had been moving into lands once controlled by Mongol and other nomadic and hunting peoples. They did so with forts, cannons, and muskets.",
+          "q": "Which of the following does this situation best show?",
+          "options": [
+            "Mongol and other nomadic peoples united to stop Russian and Qing expansion and kept control of the region.",
+            "Settled empires used firearms and forts to take over lands nomads had long controlled.",
+            "Both empires agreed to stop expanding, because forts and firearms in such remote lands cost too much to keep.",
+            "Russia and Qing China fought mainly over sea trade with Europe."
+          ],
+          "answer": 1,
+          "why": "Both empires pushed into steppe and Siberian lands with forts and gunpowder weapons. The choice about stopping expansion is wrong because both kept expanding after the treaty.",
+          "src": {
+            "label": "Wikipedia: Treaty of Nerchinsk",
+            "url": "https://en.wikipedia.org/wiki/Treaty_of_Nerchinsk"
+          }
+        },
+        {
+          "id": "3x-james-divine-right",
+          "type": "mc",
+          "stimulus": "King James I of England, who ruled from 1603 to 1625, wrote books and gave speeches arguing that a king gets his power from God. He told Parliament that kings answer to God alone and should not be judged by their subjects.",
+          "q": "Which of the following best explains how this idea helped James I?",
+          "options": [
+            "It showed his power came from a vote of the nobles.",
+            "It gave his rule a religious basis, so resisting him could be treated as a sin.",
+            "It accepted that Parliament could remove a king who broke the law, which won him its members' support.",
+            "It placed the Pope above English kings, winning James Catholic support."
+          ],
+          "answer": 1,
+          "why": "If a king's power comes from God, disobeying the king means disobeying God. The vote choice is wrong because divine right says power does not come from nobles or the people.",
+          "src": {
+            "label": "Wikipedia: James VI and I",
+            "url": "https://en.wikipedia.org/wiki/James_VI_and_I"
+          }
+        },
+        {
+          "id": "3x-versailles-court",
+          "type": "mc",
+          "stimulus": "Beginning in the 1680s, King Louis XIV of France made the Palace of Versailles the home of his government. The palace had a Hall of Mirrors and huge gardens. Many French nobles lived there and took part in the king's daily routines, such as watching him wake up and eat.",
+          "q": "Which of the following best explains why Louis XIV did this?",
+          "options": [
+            "It served as a walled fortress where the army could hold out against a Spanish invasion of northern France.",
+            "It gave an elected assembly of nobles a permanent place to meet and vote on the kingdom's new laws.",
+            "It showed he had agreed to share his power with the nobles in return for their taxes.",
+            "It showed off his wealth and power and kept the nobles living near him at court, away from their own estates."
+          ],
+          "answer": 3,
+          "why": "Court life kept nobles busy, dependent on the king, and away from their local power. The assembly choice is wrong because Louis XIV was an absolute monarch who did not share power with an elected body.",
+          "src": {
+            "label": "Wikipedia: Palace of Versailles",
+            "url": "https://en.wikipedia.org/wiki/Palace_of_Versailles"
+          }
+        },
+        {
+          "id": "3x-grand-buildings",
+          "type": "mc",
+          "stimulus": "The Mughal emperor Shah Jahan had the Taj Mahal built in the 1600s as a tomb of white marble. The Ottoman sultan Suleiman had the Suleymaniye Mosque built in the 1500s, with a huge dome and many schools. King Louis XIV of France spent huge sums on the Palace of Versailles in the 1600s.",
+          "q": "Which of the following best explains what these building projects had in common?",
+          "options": [
+            "All three were built mainly as strongholds to protect rulers from attack by cannon and other gunpowder weapons.",
+            "All three were paid for mostly with taxes on European merchants who traded in each ruler's ports.",
+            "Rulers used grand buildings to show their wealth, power, and glory.",
+            "All three were designed by architects from Italy and France who worked for rulers across Eurasia."
+          ],
+          "answer": 2,
+          "why": "Each ruler used a grand building to show that his state was rich and his rule was great. The stronghold choice is wrong because these were a tomb, a mosque, and a palace, not forts.",
+          "src": {
+            "label": "Wikipedia: Taj Mahal",
+            "url": "https://en.wikipedia.org/wiki/Taj_Mahal"
+          }
+        },
+        {
+          "id": "3x-akbar-tolerance",
+          "type": "mc",
+          "stimulus": "The Mughal emperor Akbar ruled from 1556 to 1605, when most people in his empire were Hindu. In 1564 he ended the jizya, a tax on non-Muslims. He brought Hindu Rajput leaders into high posts and held discussions among scholars of many faiths.",
+          "q": "Which of the following best describes an effect of Akbar's policies?",
+          "options": [
+            "They led Muslim nobles to overthrow Akbar and divide the empire among themselves.",
+            "They won the loyalty of many Hindu subjects and helped make the empire more stable.",
+            "They turned the empire into a Hindu kingdom, with Rajput princes replacing Muslim emperors on the throne.",
+            "They angered the Safavid shah so much that he invaded northern India and took Delhi from the Mughals."
+          ],
+          "answer": 1,
+          "why": "Fair treatment gave Hindu subjects and Rajput leaders a reason to support Mughal rule. The Hindu kingdom choice is wrong because Muslim Mughal emperors kept the throne; Akbar gave others a share in government.",
+          "src": {
+            "label": "Wikipedia: Akbar",
+            "url": "https://en.wikipedia.org/wiki/Akbar"
+          }
+        },
+        {
+          "id": "3x-spain-vs-akbar",
+          "type": "mc",
+          "stimulus": "In 1492, King Ferdinand and Queen Isabella of Spain ordered the Jews of Spain to become Christians or leave. Tens of thousands left. In the late 1500s, the Mughal emperor Akbar allowed Hindus, Muslims, Jains, Christians, and others in India to practice their faiths openly.",
+          "q": "Which of the following best compares these two policies?",
+          "options": [
+            "Spain welcomed people of many faiths, while Akbar pushed his subjects to accept Islam.",
+            "Both rulers ended special taxes on religious minorities to win their support for costly wars.",
+            "Spain demanded that everyone share one faith, while Akbar accepted people of many faiths in his empire.",
+            "Both rulers forced religious minorities to leave, because they feared those groups would side with enemies."
+          ],
+          "answer": 2,
+          "why": "Spain's order demanded religious uniformity, while Akbar tolerated many religions. The first choice reverses the two policies.",
+          "src": {
+            "label": "Wikipedia: Alhambra Decree",
+            "url": "https://en.wikipedia.org/wiki/Alhambra_Decree"
+          }
+        },
+        {
+          "id": "3x-aurangzeb-jizya",
+          "type": "mc",
+          "stimulus": "The Mughal emperor Aurangzeb ruled from 1658 to 1707. In 1679 he brought back the jizya, a tax on non-Muslims that Akbar had ended. He also ordered some Hindu temples destroyed. During his reign, revolts by Marathas, Sikhs, and other groups grew stronger.",
+          "q": "Which of the following best explains the effect of Aurangzeb's religious policies?",
+          "options": [
+            "They united Hindu and Muslim subjects behind the emperor, which helped him crush the Maratha revolt quickly.",
+            "They angered many non-Muslim subjects and added to the strain on the empire.",
+            "They raised so much tax money that the empire became richer and more peaceful than under Akbar.",
+            "They ended the wars with the Sikhs by giving Sikh leaders high posts in the government."
+          ],
+          "answer": 1,
+          "why": "Pressure on non-Muslims weakened their loyalty and fed revolts. The choice about crushing the Marathas is wrong because the Maratha revolt grew stronger during his reign.",
+          "src": {
+            "label": "Wikipedia: Aurangzeb",
+            "url": "https://en.wikipedia.org/wiki/Aurangzeb"
+          }
+        },
+        {
+          "id": "3x-nanak-blend",
+          "type": "mc",
+          "stimulus": "Guru Nanak, born in 1469 in Punjab, founded Sikhism. He taught that there is one God, whether people use Hindu or Muslim names for God. He rejected caste divisions and taught through songs in the local language.",
+          "q": "Which of the following best explains why Sikhism appealed to many people in northern India?",
+          "options": [
+            "It was spread by Sikh armies that conquered Punjab and required the people there to convert.",
+            "It promised that Mughal emperors would lower taxes for every family that joined the new faith.",
+            "It kept the caste system but let lower castes become priests after many years of study.",
+            "It blended ideas from nearby Hindu and Muslim traditions and welcomed people of every caste."
+          ],
+          "answer": 3,
+          "why": "Sikh teachings drew on Hindu and Muslim ideas people already knew and welcomed every caste. The caste system choice is wrong because Nanak rejected caste divisions.",
+          "src": {
+            "label": "Wikipedia: Sikhism",
+            "url": "https://en.wikipedia.org/wiki/Sikhism"
+          }
+        },
+        {
+          "id": "3x-khalsa-origin",
+          "type": "mc",
+          "stimulus": "Mughal rulers executed two Sikh Gurus: Guru Arjan in 1606 and Guru Tegh Bahadur in 1675. In 1699, Guru Gobind Singh founded the Khalsa, a community of initiated Sikhs who promised to protect their faith and carry weapons.",
+          "q": "Which of the following best explains the founding of the Khalsa?",
+          "options": [
+            "Mughal persecution pushed Sikhs to organize to defend their community.",
+            "Mughal emperors asked the Sikhs to raise an army that would help them fight the Safavids in the west.",
+            "Sikh leaders hoped to bring back the Delhi Sultanate, which had ruled northern India before the Mughals.",
+            "Sikh leaders planned to force the Mughal emperor to convert, so Sikhism would become the state religion."
+          ],
+          "answer": 0,
+          "why": "After two Gurus were executed, Sikhs built a community that could protect itself. The Safavid choice is wrong because the Khalsa formed against Mughal pressure, not to serve the Mughals.",
+          "src": {
+            "label": "Wikipedia: Khalsa",
+            "url": "https://en.wikipedia.org/wiki/Khalsa"
+          }
+        },
+        {
+          "id": "3x-third-rome",
+          "type": "mc",
+          "stimulus": "The Ottomans captured Constantinople, the Byzantine capital, in 1453. Ivan III of Moscow then married Sophia, a niece of the last Byzantine emperor, and used the Byzantine double-headed eagle as a symbol. Later, a Russian monk described Moscow as the 'Third Rome.'",
+          "q": "Which of the following best explains these actions by Moscow's rulers?",
+          "options": [
+            "They wanted to unite their church with the Catholic Church under the Pope.",
+            "They wanted Moscow seen as the heir to Byzantium and the new leader of all Orthodox Christians.",
+            "They hoped to win an Ottoman alliance by honoring Byzantium.",
+            "They wanted to end Orthodox traditions in Russia and adopt the customs of Western European courts."
+          ],
+          "answer": 1,
+          "why": "With Constantinople gone, Moscow's rulers claimed Byzantine heritage and a duty to lead Orthodox Christians. The Catholic choice is wrong because Russia's rulers saw themselves as defenders of Orthodoxy against Rome.",
+          "src": {
+            "label": "Wikipedia: Third Rome",
+            "url": "https://en.wikipedia.org/wiki/Third_Rome"
+          }
+        },
+        {
+          "id": "3x-kazan-astrakhan",
+          "type": "mc",
+          "stimulus": "In 1552, Tsar Ivan IV of Russia captured the city of Kazan, and in 1556 he took Astrakhan. Both cities were Muslim Tatar states along the Volga River. After these conquests, Russian traders, soldiers, and settlers began moving east into Siberia.",
+          "q": "Which of the following was a result of these conquests?",
+          "options": [
+            "Russia's new Tatar subjects took control of the government in Moscow and made Islam the state religion.",
+            "Russia moved its capital from Moscow to Kazan to be closer to the trade on the Volga.",
+            "Russia won ports on the Baltic Sea and began building a large navy to trade with Western Europe.",
+            "Russia began to rule a large, multiethnic empire that included Muslim Tatars and other non-Russian peoples."
+          ],
+          "answer": 3,
+          "why": "Taking the Volga region added Muslim and other peoples to Russia and opened the way east. The Baltic choice is wrong because Russia had no real Baltic navy until Peter the Great built one in the early 1700s.",
+          "src": {
+            "label": "Wikipedia: Ivan the Terrible",
+            "url": "https://en.wikipedia.org/wiki/Ivan_the_Terrible"
+          }
+        },
+        {
+          "id": "3x-peter-west",
+          "type": "mc",
+          "stimulus": "Tsar Peter the Great traveled in Western Europe in 1697 and 1698. After he returned, he ordered nobles to shave their beards or pay a tax, brought in foreign experts, and built a navy. In 1703 he began building a new city, Saint Petersburg, on the Baltic coast.",
+          "q": "Which of the following best explains Peter's goals?",
+          "options": [
+            "He wanted to cut Russia off from Europe and revive old customs.",
+            "He wanted to share power with an elected assembly of nobles, merchants, and peasants, as in Western Europe.",
+            "He wanted to strengthen Russia by borrowing Western technology and military methods.",
+            "He wanted to replace the Russian Orthodox Church with the Protestant churches he had seen in Holland."
+          ],
+          "answer": 2,
+          "why": "Peter borrowed ideas and skills from Western Europe to make Russia a stronger military power. The assembly choice is wrong because Peter ruled as an absolute monarch and shared power with no elected body.",
+          "src": {
+            "label": "Wikipedia: Peter the Great",
+            "url": "https://en.wikipedia.org/wiki/Peter_the_Great"
+          }
+        },
+        {
+          "id": "3x-qing-exams",
+          "type": "mc",
+          "stimulus": "The Manchus who founded the Qing dynasty in 1644 came from outside China. Yet they kept the civil service examinations, the study of Confucian texts, and much of the Ming system of government.",
+          "q": "Which of the following best explains why the Qing kept these Ming institutions?",
+          "options": [
+            "Keeping familiar systems helped the new Manchu rulers win the cooperation of Han Chinese scholar-officials.",
+            "The Manchus had no written language or laws of their own, so they had no other way to run a state.",
+            "They planned to replace Confucian learning with Manchu traditions.",
+            "They wanted the exams to choose officials for China's growing sea trade with Europe."
+          ],
+          "answer": 0,
+          "why": "The Qing needed Han Chinese officials to help rule, and the old system gave those officials a place. The written language choice is wrong because the Manchus already had their own script and leaders before 1644.",
+          "src": {
+            "label": "Wikipedia: Imperial examination",
+            "url": "https://en.wikipedia.org/wiki/Imperial_examination"
+          }
+        },
+        {
+          "id": "3x-tribute-system",
+          "type": "mc",
+          "stimulus": "Under the Ming dynasty, foreign rulers who wanted to trade with China were expected to send tribute missions to the emperor. Envoys had to perform ceremonies showing respect, and in return they received gifts and trading rights. Trade outside this system was limited by the government.",
+          "q": "Which of the following does this system best show about Ming China?",
+          "options": [
+            "Chinese rulers treated foreign states as equal partners and signed trade treaties with each one.",
+            "The Ming government depended mainly on the gold and goods that tribute missions brought to pay its costs.",
+            "Chinese rulers saw China as the center of the world and treated other states as lesser.",
+            "The Ming hoped to end all contact with Southeast Asia and other nearby regions."
+          ],
+          "answer": 2,
+          "why": "The ceremonies placed the emperor above foreign rulers. The choice about depending on tribute is wrong because the gifts the Ming gave back were often worth more than the tribute.",
+          "src": {
+            "label": "Wikipedia: Tributary system of China",
+            "url": "https://en.wikipedia.org/wiki/Tributary_system_of_China"
+          }
+        },
+        {
+          "id": "3x-ricci-jesuits",
+          "type": "mc",
+          "stimulus": "The Jesuit Matteo Ricci reached China in the 1580s. He learned Chinese, dressed as a scholar, and impressed officials with maps, clocks, and knowledge of mathematics and astronomy. Later Jesuits served at the imperial court, where they helped with the calendar.",
+          "q": "Which of the following best explains why the Chinese court accepted the Jesuits?",
+          "options": [
+            "They arrived with Portuguese soldiers whose guns forced the emperor to let missionaries into the court.",
+            "Their skill in astronomy, mathematics, and mapmaking was useful to the emperor and his officials.",
+            "The emperor wanted all Chinese officials to become Catholic so they would share one faith.",
+            "They were hired to teach Confucian texts, which Chinese scholars had mostly stopped reading."
+          ],
+          "answer": 1,
+          "why": "The court valued Jesuit knowledge, especially for keeping the calendar accurate. The soldiers choice is wrong because the Jesuits relied on learning and respect, not force.",
+          "src": {
+            "label": "Wikipedia: Matteo Ricci",
+            "url": "https://en.wikipedia.org/wiki/Matteo_Ricci"
+          }
+        },
+        {
+          "id": "3x-luther-spread",
+          "type": "mc",
+          "stimulus": "In 1517, the German monk Martin Luther criticized the Church's sale of indulgences. His writings were printed quickly and in large numbers. Within a few years, many people and some rulers in northern Europe supported his ideas, and the unity of Western Christianity broke.",
+          "q": "Which of the following best explains why Luther's ideas spread so widely?",
+          "options": [
+            "The Pope agreed with Luther at first and ordered priests across Europe to read his writings aloud in church.",
+            "Luther was a German prince whose army forced neighboring lands to accept his ideas.",
+            "Printing made his writings cheap to copy, and some rulers wanted independence from Rome.",
+            "The Ottoman sultan paid printers to spread Luther's writings so that Christian Europe would be divided."
+          ],
+          "answer": 2,
+          "why": "Printing spread Luther's ideas fast, and some rulers backed him for their own reasons. The Pope choice is wrong because the Pope condemned Luther and excommunicated him in 1521.",
+          "src": {
+            "label": "Wikipedia: Protestant Reformation",
+            "url": "https://en.wikipedia.org/wiki/Protestant_Reformation"
+          }
+        },
+        {
+          "id": "3x-missions-abroad",
+          "type": "mc",
+          "stimulus": "By the mid-1500s, much of northern Europe had left the authority of the Pope. At the same time, Spanish and Portuguese ships were reaching the Americas, Africa, and Asia. The Catholic Church founded new groups, such as the Jesuits, and sent them overseas.",
+          "q": "Which of the following best explains why the Catholic Church sent missionaries abroad?",
+          "options": [
+            "The Church hoped that winning converts in Africa would persuade Protestant rulers in Europe to return to Rome.",
+            "The Church wanted missionaries to stop Spanish and Portuguese merchants from trading in Asia.",
+            "The Church sought new followers overseas to replace those it lost in Europe.",
+            "The Church had been driven out of Italy and Spain."
+          ],
+          "answer": 2,
+          "why": "After losing members to Protestant churches, Catholic leaders worked to grow their faith in new places. The southern Europe choice is wrong because Spain, Portugal, and Italy stayed Catholic.",
+          "src": {
+            "label": "Wikipedia: Counter-Reformation",
+            "url": "https://en.wikipedia.org/wiki/Counter-Reformation"
+          }
+        },
+        {
+          "id": "3x-istanbul-crossroads",
+          "type": "mc",
+          "stimulus": "The Ottoman capital, Istanbul, sat on the Bosporus strait, where Europe meets Asia. The empire also held ports on the Mediterranean and Black Seas and controlled land routes into the Middle East and North Africa.",
+          "q": "Which of the following best explains how this location helped the Ottoman Empire?",
+          "options": [
+            "Surrounded by water on several sides, the empire was safe from attack and rarely had to fight wars.",
+            "The sultans could tax and protect trade moving between Europe, Asia, and Africa.",
+            "Control of the straits gave the Ottomans a monopoly on Atlantic trade between Europe and the Americas.",
+            "The location cut the empire off from the Mediterranean Sea."
+          ],
+          "answer": 1,
+          "why": "Many trade routes crossed Ottoman lands, which brought the state wealth. The safety choice is wrong because the Ottomans fought many wars, against the Safavids, Habsburgs, and Venice.",
+          "src": {
+            "label": "Wikipedia: Ottoman Empire",
+            "url": "https://en.wikipedia.org/wiki/Ottoman_Empire"
+          }
+        },
+        {
+          "id": "3x-sinan-talent",
+          "type": "mc",
+          "stimulus": "Mimar Sinan was born into a Christian family and was taken into Ottoman service as a boy through the devshirme system. He became a soldier and engineer, and then chief architect for several sultans. He designed hundreds of mosques, schools, bridges, and other buildings.",
+          "q": "Which of the following does Sinan's career best show about the Ottoman Empire?",
+          "options": [
+            "The empire let talented people from many backgrounds, even Christian-born boys, rise to high posts.",
+            "Only men born into Turkish Muslim families could hold high posts in the sultan's government.",
+            "The sultans relied mainly on architects hired from Italy to design their most important mosques and bridges.",
+            "The devshirme system was used mainly to punish Christian families who refused to pay taxes."
+          ],
+          "answer": 0,
+          "why": "Sinan began as a Christian boy yet became one of the most important men in the empire. The Turkish Muslim choice is wrong because his own life shows that high posts were not limited to Turkish-born Muslims.",
+          "src": {
+            "label": "Wikipedia: Mimar Sinan",
+            "url": "https://en.wikipedia.org/wiki/Mimar_Sinan"
+          }
+        },
+        {
+          "id": "3x-selim-safavid",
+          "type": "mc",
+          "stimulus": "In 1501, Shah Ismail made Twelver Shia Islam the official religion of the Safavid state. The Ottoman sultans were Sunni Muslims. Many Safavid supporters, called Qizilbash, lived inside Ottoman Anatolia. In 1514, Sultan Selim I marched against the Safavids.",
+          "q": "Which of the following best explains Selim's attack?",
+          "options": [
+            "He needed to cross Safavid land to reach Mughal India, which he hoped to conquer for its wealth.",
+            "The Safavid navy had blocked Ottoman ports in the eastern Mediterranean and cut off grain shipments.",
+            "The Safavids had stopped paying tribute to the sultan.",
+            "He saw Safavid power and its Shia supporters in Anatolia as a threat to his rule."
+          ],
+          "answer": 3,
+          "why": "Religious difference and Safavid supporters inside Ottoman lands made the Safavids a danger to Ottoman rule. The navy choice is wrong because the Safavids had no Mediterranean coast.",
+          "src": {
+            "label": "Wikipedia: Safavid dynasty",
+            "url": "https://en.wikipedia.org/wiki/Safavid_dynasty"
+          }
+        },
+        {
+          "id": "3x-overland-trade-disrupted",
+          "type": "mc",
+          "stimulus": "For over a century, the Sunni Ottomans and the Shia Safavids fought wars over land in Iraq, the Caucasus, and eastern Anatolia. Silk and other goods from Asia often traveled overland through Safavid territory to Ottoman markets.",
+          "q": "Which of the following best explains the effect of this conflict on trade?",
+          "options": [
+            "Fighting and closed borders made overland trade riskier and more costly.",
+            "The wars pushed merchants away from the sea, so nearly all Asian silk went overland through the war zone.",
+            "The two empires agreed to share silk profits during the wars, which sharply increased trade between them.",
+            "European demand for silk ended during the wars."
+          ],
+          "answer": 0,
+          "why": "War in the border lands made merchants pay more and take more risks. The demand choice is wrong because Persian silk stayed in high demand in Europe while the routes grew harder to use.",
+          "src": {
+            "label": "Wikipedia: Safavid dynasty",
+            "url": "https://en.wikipedia.org/wiki/Safavid_dynasty"
+          }
+        },
+        {
+          "id": "3x-jahangir-painting",
+          "type": "mc",
+          "stimulus": "Around 1615 to 1618, the court painter Bichitr made a painting for the Mughal emperor Jahangir. It shows Jahangir with a glowing halo of sun and moon, seated on a throne shaped like an hourglass. He hands a book to a Sufi holy man, while an Ottoman sultan and King James I of England stand waiting nearby.",
+          "q": "The painter's main purpose was most likely to",
+          "options": [
+            "record a real meeting between Jahangir, James I, and the Ottoman sultan.",
+            "show that Jahangir planned to give up the throne to become a Sufi.",
+            "warn that Ottoman and English armies would soon conquer the Mughal Empire unless it changed.",
+            "show Jahangir as a ruler blessed by God and more important than the other kings of the world."
+          ],
+          "answer": 3,
+          "why": "The halo, the grand throne, and kings left waiting all make Jahangir look blessed and more important than other rulers. The meeting choice is wrong because neither James I nor the Ottoman sultan ever visited Jahangir; the scene is symbolic.",
+          "src": {
+            "label": "Wikipedia: Jahangir Preferring a Sufi Shaikh to Kings",
+            "url": "https://en.wikipedia.org/wiki/Jahangir_Preferring_a_Sufi_Shaikh_to_Kings"
+          }
+        },
+        {
+          "id": "3x-akbarnama-pov",
+          "type": "mc",
+          "stimulus": "The Akbarnama is a long history of the reign of the Mughal emperor Akbar, written in Persian around 1600. It praises Akbar's wisdom and describes his victories in great detail.",
+          "q": "All of the following facts are true. Which would be most useful for judging the Akbarnama's point of view about Akbar?",
+          "options": [
+            "Akbar ordered it, and its author, Abul Fazl, was one of his closest courtiers.",
+            "It was written in Persian, which was the main language of writing and government at the Mughal court.",
+            "An English translation by Henry Beveridge was published in three volumes between 1902 and 1939.",
+            "Copies survive today in museums in India and Britain."
+          ],
+          "answer": 0,
+          "why": "A writer chosen by the emperor and close to him had good reason to praise him, which explains the book's admiring tone. The Persian language fact is true but says nothing about whose side the author was on.",
+          "src": {
+            "label": "Wikipedia: Akbarnama",
+            "url": "https://en.wikipedia.org/wiki/Akbarnama"
+          }
+        },
+        {
+          "id": "3x-janissaries",
+          "type": "mc",
+          "stimulus": "The Janissaries were the Ottoman sultan's own infantry. Most were recruited as boys through the devshirme, trained for years, and paid regular salaries. By the mid-1400s they fought with firearms, and they were meant to be loyal only to the sultan.",
+          "q": "Which of the following best explains how a force like the Janissaries helped the sultans hold power?",
+          "options": [
+            "A trained army loyal to the sultan gave him force that did not depend on local lords.",
+            "Elected officers in the corps let ordinary soldiers vote on which prince should become the next sultan.",
+            "Most Janissaries came from old Turkish Muslim noble families.",
+            "Janissaries were part-time farmers who fought only in wartime."
+          ],
+          "answer": 0,
+          "why": "A paid, full-time army that answered to the sultan let him enforce his rule and show his strength. The Turkish families choice is wrong because most Janissaries were taken as Christian boys through the devshirme.",
+          "src": {
+            "label": "Wikipedia: Janissary",
+            "url": "https://en.wikipedia.org/wiki/Janissary"
+          }
+        },
+        {
+          "id": "3x-qianlong-letter",
+          "type": "mc",
+          "stimulus": "Since 1757, the Qing had allowed European ships to trade only at the port of Canton (Guangzhou). In 1793, a British mission asked the Qianlong Emperor to open more ports and accept a British ambassador in Beijing. In a letter to King George III, the emperor refused and said China already had everything it needed.",
+          "q": "The emperor's letter was most likely intended to",
+          "options": [
+            "assert China's superiority and keep foreign trade under strict control.",
+            "invite British merchants to trade at every Chinese port in exchange for silver, which China wanted.",
+            "ask Britain for help in defending China's northern borders against the growing Russian Empire.",
+            "show that the Qing saw Britain as an equal partner and wanted a formal treaty of friendship."
+          ],
+          "answer": 0,
+          "why": "The emperor refused every request and wrote as if George III were beneath him, which kept trade on Qing terms. The every-port choice is wrong because he rejected opening more ports.",
+          "src": {
+            "label": "Wikipedia: Macartney Embassy",
+            "url": "https://en.wikipedia.org/wiki/Macartney_Embassy"
+          }
+        },
+        {
+          "id": "3x-tokugawa-limits",
+          "type": "mc",
+          "stimulus": "Portuguese and Spanish missionaries converted many Japanese, especially on the island of Kyushu. In 1614 the Tokugawa shogunate ordered missionaries out of Japan. After a large, mostly Christian revolt at Shimabara in 1637 and 1638, it expelled the Portuguese and let only the Dutch and Chinese trade, at Nagasaki.",
+          "q": "Which of the following best explains these policies?",
+          "options": [
+            "Japan's rulers wanted to end all foreign trade, so they closed every port to ships from other countries.",
+            "The shogun had become a Protestant and favored the Dutch.",
+            "The shogun feared Christianity and foreign influence would weaken his control.",
+            "Japan rewarded the Dutch for helping it defeat a Chinese invasion."
+          ],
+          "answer": 2,
+          "why": "The shogunate saw missionaries and their converts as a threat to its power, so it limited contact with outsiders. The choice about ending all trade is wrong because Dutch and Chinese merchants kept trading at Nagasaki.",
+          "src": {
+            "label": "Wikipedia: Sakoku",
+            "url": "https://en.wikipedia.org/wiki/Sakoku"
+          }
+        },
+        {
+          "id": "3x-luther-critique",
+          "type": "mc",
+          "stimulus": "In 1515, Pope Leo X offered a special indulgence, a release from punishment for sins, to raise money for rebuilding St. Peter's Basilica in Rome. In 1517, Martin Luther objected. He argued that buying pardons could not replace real repentance, and he asked why a very rich pope needed money from poor believers.",
+          "q": "Luther's objections best reflect which Protestant claim about the Catholic Church?",
+          "options": [
+            "It had moved too quickly to translate the Bible into German and the other languages people spoke.",
+            "It had given kings too little say over choosing bishops.",
+            "It should have sold pardons only to the rich.",
+            "Its leaders had been corrupted by wealth and power and were using faith to raise money."
+          ],
+          "answer": 3,
+          "why": "Luther's complaint is that Church leaders used faith to raise money, a sign that wealth and power had corrupted them. The translation choice is wrong because Protestants wanted the Bible in everyday languages, and Luther himself translated it into German.",
+          "src": {
+            "label": "Wikipedia: Ninety-five Theses",
+            "url": "https://en.wikipedia.org/wiki/Ninety-five_Theses"
+          }
+        },
+        {
+          "id": "3x-med-trade",
+          "type": "mc",
+          "stimulus": "In the 1500s, Venetian merchants bought spices and silk in eastern Mediterranean ports under Ottoman rule and shipped them to Europe. In 1538, an Ottoman fleet defeated a larger Christian fleet at Preveza, off the coast of Greece. For about 30 years after, the Ottoman navy was the strongest in the Mediterranean.",
+          "q": "Which of the following best describes who dominated Mediterranean trade in the 1500s?",
+          "options": [
+            "English and Dutch trading companies, which had pushed Venetian merchants out of the eastern Mediterranean",
+            "The Byzantine Empire, which still controlled the straits between the Black Sea and the Mediterranean",
+            "The Ottoman Empire and Italian trading cities such as Venice",
+            "Portugal and Spain, whose new sea routes around Africa had made them the main traders in the region"
+          ],
+          "answer": 2,
+          "why": "Venice kept trading through Ottoman ports, and the Ottoman navy ruled the sea after 1538. The English and Dutch choice is wrong because their companies did not become major Mediterranean traders until the 1600s.",
+          "src": {
+            "label": "Wikipedia: Battle of Preveza",
+            "url": "https://en.wikipedia.org/wiki/Battle_of_Preveza"
+          }
+        }
+      ]
+    },
     {
       "id": "31-overview",
       "name": "Gunpowder empires and Europe in 1450",
@@ -2246,5 +2829,9 @@
         }
       ]
     }
-  ]
+  ],
+  "checkFocus": {
+    "topic": "3x-test",
+    "share": 0.5
+  }
 });

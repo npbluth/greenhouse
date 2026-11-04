@@ -70,7 +70,7 @@ test("practice round: one topic only when a topic is picked", () => {
 
 test("readiness check: 20 questions spread across every topic", () => {
   for (const seed of [1, 2, 3, 99]) {
-    const r = GH.buildCheck(SET, 20, seeded(seed));
+    const r = GH.buildCheck({ ...SET, checkFocus: undefined }, 20, seeded(seed));
     assert.equal(r.length, 20);
     assert.equal(new Set(r.map((i) => i.id)).size, 20);
     const per = {};
@@ -162,4 +162,12 @@ test("short answers: an opposite answer is never accepted as a typo", () => {
   assert.ok(!GH.matches("world war ii", ["world war i"]));
   assert.ok(!GH.matches("world war two", ["world war one"]));
   assert.ok(GH.matches("centralised power", ["centralized power"]), "spelling variants still pass");
+});
+
+test("readiness check: a set can ask for half its questions from one topic", () => {
+  const focused = { ...SET, checkFocus: { topic: SET.topics[0].id, share: 0.5 } };
+  const r = GH.buildCheck(focused, 20, seeded(11));
+  assert.equal(r.length, 20);
+  assert.equal(r.filter((i) => i.topic === SET.topics[0].id).length, Math.min(10, SET.topics[0].items.length));
+  assert.equal(new Set(r.map((i) => i.id)).size, 20);
 });
