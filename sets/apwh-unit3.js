@@ -160,7 +160,7 @@
     },
     {
       "id": "31-russia",
-      "name": "Russia",
+      "name": "Russia expands",
       "items": [
         {
           "id": "31-term-ivan-iv",
@@ -1589,7 +1589,7 @@
     },
     {
       "id": "32-russia",
-      "name": "Russia",
+      "name": "Russia: ruling the empire",
       "items": [
         {
           "id": "32-term-boyars",
